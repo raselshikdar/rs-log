@@ -31,7 +31,7 @@ const blogTheme = getThemeConfig({
   footer: {
     // The message field supports HTML content. Use an array to configure multiple lines.
     // message: 'The content and icons below can all be customized (this message too)',
-    copyright: 'MIT License | RsLog',
+    copyright: 'MIT Licensed | RsLog',
     // icpRecord: {
     //   name: 'Sichuan ICP No. 19011724',
     //   link: 'https://beian.miit.gov.cn/'

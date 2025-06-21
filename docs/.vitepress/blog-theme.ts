@@ -1,61 +1,61 @@
-// 主题独有配置
+// Theme-specific configuration
 import { getThemeConfig } from '@sugarat/theme/node'
 
-// 开启RSS支持（RSS配置）
+// Enable RSS support (RSS configuration)
 // import type { Theme } from '@sugarat/theme'
 
 // const baseUrl = 'https://sugarat.top'
 // const RSS: Theme.RSSOptions = {
-//   title: '粥里有勺糖',
+//   title: 'Sugar in the Porridge',
 //   baseUrl,
-//   copyright: 'Copyright (c) 2018-present, 粥里有勺糖',
-//   description: '你的指尖,拥有改变世界的力量（大前端相关技术分享）',
+//   copyright: 'Copyright (c) 2018-present, Sugar in the Porridge',
+//   description: 'The power to change the world is at your fingertips (Front-end tech sharing)',
 //   language: 'zh-cn',
 //   image: 'https://img.cdn.sugarat.top/mdImg/MTY3NDk5NTE2NzAzMA==674995167030',
 //   favicon: 'https://sugarat.top/favicon.ico',
 // }
 
-// 所有配置项，详见文档: https://theme.sugarat.top/
+// All configuration options, see docs: https://theme.sugarat.top/
 const blogTheme = getThemeConfig({
-  // 开启RSS支持
+  // Enable RSS support
   // RSS,
 
-  // 搜索
-  // 默认开启pagefind离线的全文搜索支持（如使用其它的可以设置为false）
+  // Search
+  // Pagefind offline full-text search is enabled by default (set to false if using another solution)
   // search: false,
 
-  // markdown 图表支持（会增加一定的构建耗时）
+  // Markdown chart support (adds some build time)
   // mermaid: true
 
-  // 页脚
+  // Footer
   footer: {
-    // message 字段支持配置为HTML内容，配置多条可以配置为数组
-    // message: '下面 的内容和图标都是可以修改的噢（当然本条内容也是可以隐藏的）',
-    copyright: 'MIT License | 粥里有勺糖',
+    // The message field supports HTML content. Use an array to configure multiple lines.
+    // message: 'The content and icons below can all be customized (this message too)',
+    copyright: 'MIT License | RsLog',
     // icpRecord: {
-    //   name: '蜀ICP备19011724号',
+    //   name: 'Sichuan ICP No. 19011724',
     //   link: 'https://beian.miit.gov.cn/'
     // },
     // securityRecord: {
-    //   name: '公网安备xxxxx',
+    //   name: 'Public Security Registration xxxxx',
     //   link: 'https://www.beian.gov.cn/portal/index.do'
     // },
   },
 
-  // 主题色修改
+  // Theme color customization
   themeColor: 'el-blue',
 
-  // 文章默认作者
-  author: '粥里有勺糖',
+  // Default author of articles
+  author: 'Rasel Shikdar',
 
-  // 友链
+  // Friend links
   friend: [
     {
-      nickname: '粥里有勺糖',
-      des: '你的指尖用于改变世界的力量',
+      nickname: 'RsLog',
+      des: 'A journal of ideas, by Rasel Shikdar',
       avatar:
         'https://img.cdn.sugarat.top/mdImg/MTY3NDk5NTE2NzAzMA==674995167030',
-      url: 'https://sugarat.top',
+      url: 'https://rslog.vercel.app',
     },
     {
       nickname: 'Vitepress',
@@ -66,36 +66,36 @@ const blogTheme = getThemeConfig({
     },
   ],
 
-  // 公告
+  // Announcement
   popover: {
-    title: '公告',
+    title: 'Announcement',
     body: [
-      { type: 'text', content: '👇公众号👇---👇 微信 👇' },
+      { type: 'text', content: '👇 Official Account 👇---👇 Telegram 👇' },
       {
         type: 'image',
         src: 'https://img.cdn.sugarat.top/mdImg/MTYxNTAxODc2NTIxMA==615018765210~fmt.webp'
       },
       {
         type: 'text',
-        content: '欢迎大家加群&私信交流'
+        content: 'Feel free to join the group & DM for discussions'
       },
       {
         type: 'text',
-        content: '文章首/文尾有群二维码',
+        content: 'Group QR codes are shown at the beginning/end of articles',
         style: 'padding-top:0'
       },
       {
         type: 'button',
-        content: '作者博客',
-        link: 'https://sugarat.top'
+        content: 'Author Blog',
+        link: '/'
       },
       {
         type: 'button',
-        content: '加群交流',
+        content: 'Join the Group',
         props: {
           type: 'success'
         },
-        link: 'https://theme.sugarat.top/group.html',
+        link: 'https://t.me/rasel597',
       }
     ],
     duration: 0

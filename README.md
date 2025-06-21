@@ -1,7 +1,7 @@
 <h1 align="center"> VitePress @sugarat/theme </h1>
 
 <p align="center">
-简约风的 <a href="https://theme.sugarat.top"  target="_blank"target="_blank">VitePress 博客主题</a> 示例运行项目。
+A minimalist style <a href="https://theme.sugarat.top" target="_blank">VitePress blog theme</a> demo project.
 </p>
 
 <p align="center">
@@ -10,60 +10,60 @@
 
 ## Usage
 
-先安装 `pnpm`
+First, install `pnpm`:
 
 ```sh
 npm i -g pnpm
 ```
 
-安装依赖
+Install dependencies:
 
 ```sh
 pnpm install
 ```
 
-开发启动
+Start development:
 
 ```sh
 pnpm dev
 ```
 
-构建
+Build the project:
 
 ```sh
 pnpm build
 ```
 
-预览产物
+Preview the output:
 
 ```sh
 pnpm serve
 ```
 
-## Github Pages 部署
+## GitHub Pages Deployment
 
-① Github Pages 开启 Git Actions 部署支持
+① Enable GitHub Actions deployment for GitHub Pages:
 
 ![](https://img.cdn.sugarat.top/mdImg/sugar/8a2454c628d0e2abcc7a0451ddd7d2dc)
 
-② 复制文件 `.github/workflows/deploy.yml` 到自己的项目相同目录下
+② Copy the `.github/workflows/deploy.yml` file to the same directory in your project.
 
-示例项目已包含，可以直接进行下一步
+This file is already included in the demo project, so you can proceed directly to the next step.
 
-③ 修改 `docs/.vitepress/config.mts` 里的构建配置
+③ Modify the build config in `docs/.vitepress/config.mts`.
 
-**如果项目名已经为 name.github.io 域名，则不需要修改，保持默认值 `/` 即可**
+**If your repository name is already set to `username.github.io`, you don’t need to change anything — keep the default base `/`.**
 
-`base` 改为 `"/仓库名/"` 即可
+Otherwise, change `base` to `"/your-repo-name/"`. Example:
 
 ```ts
-// 省略无关代码
+// Other unrelated code omitted
 const base = '/vitepress-blog-sugar-template/'
 export default defineConfig({
   base,
 })
 ```
 
-④ 推送 `main` 分支即可
+④ Push to the `main` branch.
 
-需要进一步修改部署和构建配置，详见`deploy.yml` 文件。
+If additional adjustments are needed for deployment or build settings, refer to the `deploy.yml` file for more details.

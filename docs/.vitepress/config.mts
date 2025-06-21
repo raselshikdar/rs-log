@@ -16,9 +16,9 @@ export default defineConfig({
   // 继承博客主题(@sugarat/theme)
   extends: blogTheme,
   // base,
-  lang: 'zh-cn',
-  title: '@sugarat/theme',
-  description: '粥里有勺糖的博客主题，基于 vitepress 实现',
+  lang: 'en-us',
+  title: 'RsLog',
+  description: 'A journal of ideas, by Rasel Shikdar',
   lastUpdated: true,
   // 详见：https://vitepress.dev/zh/reference/site-config#head
   head: [

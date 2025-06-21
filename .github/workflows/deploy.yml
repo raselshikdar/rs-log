@@ -1,61 +1,61 @@
 name: Deploy Pages
 
-# 触发条件，push到main分支或者pull request到main分支
+# Trigger conditions: push to the main branch or pull request to the main branch
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
 
-  # 支持手动在工作流上触发
+  # Allow manual trigger on the workflow page
   workflow_dispatch:
 
-# 设置时区
+# Set timezone
 env:
-  TZ: Asia/Shanghai
+  TZ: Asia/Dhaka
 
-# 权限设置
+# Permission settings
 permissions:
-  # 允许读取仓库内容的权限。
+  # Allow read access to repository contents
   contents: read
-  # 允许写入 GitHub Pages 的权限。
+  # Allow write access to GitHub Pages
   pages: write
-  # 允许写入 id-token 的权限。
+  # Allow write access to id-token
   id-token: write
 
-# 并发控制配置
+# Concurrency control configuration
 concurrency:
   group: pages
   cancel-in-progress: false
 
-# 定义执行任务
+# Define execution jobs
 jobs:
-  # 构建任务
+  # Build job
   build:
 
     runs-on: ubuntu-latest
 
-    # node v20 运行
+    # Use Node v20
     strategy:
       matrix:
         node-version: [20]
 
     steps:
-      # 拉取代码
+      # Checkout code
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          # 保留 Git 信息
+          # Keep Git history
           fetch-depth: 0
 
-      # 设置使用 Node.js 版本
+      # Set Node.js version
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
 
-      # 使用 最新的 PNPM
-      # 你也可以指定为具体的版本
+      # Use the latest PNPM
+      # You can also specify a specific version
       - uses: pnpm/action-setup@v4
         name: Install pnpm
         with:
@@ -63,30 +63,30 @@ jobs:
           # version: 9
           run_install: false
 
-        # 安装依赖
+      # Install dependencies
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
-        # 锁定依赖版本
+        # Lock dependency versions
         # run: pnpm install --frozen-lockfile
 
-        # 构建项目
+      # Build the project
       - name: Build blog project
         run: |
           echo ${{ github.workspace }}
           pnpm build
 
-        # 资源拷贝
+      # Resource copy
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
           source: docs/.vitepress/dist
           destination: ./_site
 
-        # 上传 _site 的资源，用于后续部署
+      # Upload _site resources for deployment
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
-  # 部署任务
+  # Deployment job
   deploy:
     environment:
       name: github-pages

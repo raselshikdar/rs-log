@@ -51,7 +51,15 @@ export default defineConfig({
     socialLinks: [
       {
         icon: 'github',
-        link: 'https://github.com/ATQQ/sugar-blog/tree/master/packages/theme'
+        link: 'https://github.com/raselshikdar'
+      },
+{
+        icon: 'x',
+        link: 'https://x.com/raselshikdar_'
+      },
+{
+        icon: 'facebook',
+        link: 'https://x.com/raselshiikdar'
       }
     ]
   }

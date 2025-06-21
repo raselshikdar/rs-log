@@ -16,7 +16,7 @@ export default defineConfig({
   // Extend the blog theme (@sugarat/theme)
   extends: blogTheme,
   // base,
-  lang: 'en-us',
+  lang: 'en-US',
   title: 'RsLog',
   description: 'A journal of ideas, by Rasel Shikdar',
   lastUpdated: true,

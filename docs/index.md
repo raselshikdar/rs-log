@@ -2,7 +2,7 @@
 layout: home
 # Customize elements on the homepage
 blog:
-  name: 'RsLog'
+  name: 'Rs Log'
   motto: A journal of ideas, by Rasel Shikdar
   inspiring:
     - A theme customized based on VitePress 🎨

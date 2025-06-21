@@ -1,63 +1,63 @@
 import { defineConfig } from 'vitepress'
 
-// 导入主题的配置
+// Import the theme configuration
 import { blogTheme } from './blog-theme'
 
-// 如果使用 GitHub/Gitee Pages 等公共平台部署
-// 通常需要修改 base 路径，通常为“/仓库名/”
-// 如果项目名已经为 name.github.io 域名，则不需要修改！
+// If deploying on public platforms like GitHub/Gitee Pages
+// Usually, you need to modify the base path, typically "/repository-name/"
+// If the project name is already set to name.github.io, no changes needed!
 // const base = process.env.GITHUB_ACTIONS === 'true'
 //   ? '/vitepress-blog-sugar-template/'
 //   : '/'
 
-// Vitepress 默认配置
-// 详见文档：https://vitepress.dev/reference/site-config
+// VitePress default configuration
+// See docs: https://vitepress.dev/reference/site-config
 export default defineConfig({
-  // 继承博客主题(@sugarat/theme)
+  // Extend the blog theme (@sugarat/theme)
   extends: blogTheme,
   // base,
   lang: 'en-us',
   title: 'RsLog',
   description: 'A journal of ideas, by Rasel Shikdar',
   lastUpdated: true,
-  // 详见：https://vitepress.dev/zh/reference/site-config#head
+  // See: https://vitepress.dev/zh/reference/site-config#head
   head: [
-    // 配置网站的图标（显示在浏览器的 tab 上）
-    // ['link', { rel: 'icon', href: `${base}favicon.ico` }], // 修改了 base 这里也需要同步修改
+    // Configure the site icon (shown on browser tab)
+    // ['link', { rel: 'icon', href: `${base}favicon.ico` }], // If base is modified, update this too
     ['link', { rel: 'icon', href: '/favicon.ico' }]
   ],
   themeConfig: {
-    // 展示 2,3 级标题在目录中
+    // Show level 2 and 3 headers in the outline
     outline: {
       level: [2, 3],
-      label: '目录'
+      label: 'Table of Contents'
     },
-    // 默认文案修改
-    returnToTopLabel: '回到顶部',
-    sidebarMenuLabel: '相关文章',
-    lastUpdatedText: '上次更新于',
+    // Default text labels
+    returnToTopLabel: 'Back to Top',
+    sidebarMenuLabel: 'Related Articles',
+    lastUpdatedText: 'Last Updated',
 
-    // 设置logo
+    // Set logo
     logo: '/logo.png',
     // editLink: {
     //   pattern:
     //     'https://github.com/ATQQ/sugar-blog/tree/master/packages/blogpress/:path',
-    //   text: '去 GitHub 上编辑内容'
+    //   text: 'Edit this page on GitHub'
     // },
     nav: [
-      { text: '首页', link: '/' },
-      { text: '关于作者', link: 'https://sugarat.top/aboutme.html' }
+      { text: 'Homepage', link: '/' },
+      { text: 'About me', link: '/about.html' }
     ],
     socialLinks: [
       {
         icon: 'github',
         link: 'https://github.com/raselshikdar'
       },
-{
+      {
         icon: 'x',
         link: 'https://x.com/raselshikdar_'
       },
-{
+      {
         icon: 'facebook',
         link: 'https://x.com/raselshiikdar'
       }

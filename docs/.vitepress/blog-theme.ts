@@ -91,7 +91,7 @@ const blogTheme = getThemeConfig({
       },
       {
         type: 'button',
-        content: 'Join the Group',
+        content: 'Join group discussion',
         props: {
           type: 'success'
         },

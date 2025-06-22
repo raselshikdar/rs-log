@@ -360,39 +360,39 @@ export function useAnalyzeTitles(wordCount: Ref<number>, readTime: ComputedRef<n
   const article = computed(() => useConfig()?.value.blog?.article)
 
   const topWordCount = computed(() =>
-    replaceValue(article.value?.analyzeTitles?.topWordCount || '字数：{{value}} 个字', wordCount.value)
+    replaceValue(article.value?.analyzeTitles?.topWordCount || 'Word Count：{{value}} words', wordCount.value)
   )
   const topReadTime = computed(() =>
-    replaceValue(article.value?.analyzeTitles?.topReadTime || '预计：{{value}} 分钟', readTime.value)
+    replaceValue(article.value?.analyzeTitles?.topReadTime || 'Estimated time：{{value}} minutes', readTime.value)
   )
   const inlineWordCount = computed(() =>
-    replaceValue(article.value?.analyzeTitles?.inlineWordCount || '{{value}} 个字', wordCount.value)
+    replaceValue(article.value?.analyzeTitles?.inlineWordCount || '{{value}} words', wordCount.value)
   )
   const inlineReadTime = computed(() =>
-    replaceValue(article.value?.analyzeTitles?.inlineReadTime || '{{value}} 分钟', readTime.value)
+    replaceValue(article.value?.analyzeTitles?.inlineReadTime || '{{value}} minutes read', readTime.value)
   )
 
   const wordCountTitle = computed(() =>
-    article.value?.analyzeTitles?.wordCount || '文章字数'
+    article.value?.analyzeTitles?.wordCount || 'Word count'
   )
   const readTimeTitle = computed(() =>
-    article.value?.analyzeTitles?.readTime || '预计阅读时间'
+    article.value?.analyzeTitles?.readTime || 'Estimated Reading Time'
   )
 
   const authorTitle = computed(() =>
-    article.value?.analyzeTitles?.author || '本文作者'
+    article.value?.analyzeTitles?.author || 'Author'
   )
 
   const publishDateTitle = computed(() =>
-    article.value?.analyzeTitles?.publishDate || '发布时间'
+    article.value?.analyzeTitles?.publishDate || 'Published on'
   )
 
   const lastUpdatedTitle = computed(() =>
-    article.value?.analyzeTitles?.lastUpdated || '最近修改时间'
+    article.value?.analyzeTitles?.lastUpdated || 'Updated on'
   )
 
   const tagTitle = computed(() =>
-    article.value?.analyzeTitles?.tag || '标签'
+    article.value?.analyzeTitles?.tag || 'Tags'
   )
 
   return {
@@ -427,12 +427,12 @@ export function useFormatShowDate() {
       const oneWeek = oneDay * 7
 
       const langMap = {
-        justNow: '刚刚',
-        secondsAgo: '秒前',
-        minutesAgo: '分钟前',
-        hoursAgo: '小时前',
-        daysAgo: '天前',
-        weeksAgo: '周前',
+        justNow: 'just now',
+        secondsAgo: 'seconds ago',
+        minutesAgo: 'minutes ago',
+        hoursAgo: 'hours ago',
+        daysAgo: 'days ago',
+        weeksAgo: 'weeks ago',
         ...blog.value?.formatShowDate
       }
       const mapValue = langMap

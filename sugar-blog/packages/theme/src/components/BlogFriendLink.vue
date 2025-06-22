@@ -17,7 +17,7 @@ const friendConfig = computed<Theme.FriendConfig>(() => ({
   list: [],
   random: false,
   limit: Number.MAX_SAFE_INTEGER,
-  title: `${friendLinkSvgStr}友情链接`,
+  title: `${friendLinkSvgStr}Friend Links`,
   ...(Array.isArray(friendData.value) ? { list: friendData.value } : friendData.value)
 }))
 

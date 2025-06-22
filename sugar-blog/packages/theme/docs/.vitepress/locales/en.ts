@@ -24,10 +24,10 @@ export const themeEN = defineLocaleConfig({
   comment: {
     type: 'giscus',
     options: {
-      repo: 'ATQQ/sugar-blog',
-      repoId: 'MDEwOlJlcG9zaXRvcnkyNDEyNDUyOTk',
-      category: 'Announcements',
-      categoryId: 'DIC_kwDODmEcc84COVc6',
+      repo: 'raselshikdar/rs-log',
+      repoId: 'R_kgDOO_chsA',
+      category: 'General',
+      categoryId: 'DIC_kwDOO_chsM4Cr2HD',
       inputPosition: 'top',
     },
     label: 'Comment',

@@ -19,6 +19,7 @@
     "dayjs": "^1.11.13",
     "element-plus": "^2.7.2",
     "nprogress": "^0.2.0",
+    "oh-my-live2d": "^0.19.3",
     "patch-package": "^8.0.0",
     "swiper": "^11.2.8",
     "vitepress-markdown-timeline": "^1.0.1",

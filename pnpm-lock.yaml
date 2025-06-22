@@ -32,6 +32,9 @@ importers:
       nprogress:
         specifier: ^0.2.0
         version: 0.2.0
+      oh-my-live2d:
+        specifier: ^0.19.3
+        version: 0.19.3
       patch-package:
         specifier: ^8.0.0
         version: 8.0.0

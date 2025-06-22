@@ -19,10 +19,10 @@ const sidebarStyle = computed(() =>
 const showDate = computed(() => recommend.value?.showDate ?? true)
 const showNum = computed(() => recommend.value?.showNum ?? true)
 
-const title = computed(() => recommend.value?.title ?? (`<span class="svg-icon">${recommendSVG}</span>` + '相关文章'))
+const title = computed(() => recommend.value?.title ?? (`<span class="svg-icon">${recommendSVG}</span>` + 'Related articles'))
 const pageSize = computed(() => recommend.value?.pageSize || 9)
-const nextText = computed(() => recommend.value?.nextText || '换一组')
-const emptyText = computed(() => recommend.value?.empty ?? '暂无相关文章')
+const nextText = computed(() => recommend.value?.nextText || 'Switch to another set')
+const emptyText = computed(() => recommend.value?.empty ?? 'No related articles')
 
 const docs = useArticles()
 

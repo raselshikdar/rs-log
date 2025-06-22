@@ -11,10 +11,10 @@ const formatShowDate = useFormatShowDate()
 const hotArticle = useHotArticleConfig()
 const show = useShowHotArticle()
 
-const title = computed(() => hotArticle.value?.title || `${fireSVG}精选文章`)
-const nextText = computed(() => hotArticle.value?.nextText || '换一组')
+const title = computed(() => hotArticle.value?.title || `${fireSVG}Featured Articles`)
+const nextText = computed(() => hotArticle.value?.nextText || 'Switch to another group')
 const pageSize = computed(() => hotArticle.value?.pageSize || 9)
-const empty = computed(() => hotArticle.value?.empty ?? '暂无精选内容')
+const empty = computed(() => hotArticle.value?.empty ?? 'No featured content yet')
 
 const docs = useArticles()
 

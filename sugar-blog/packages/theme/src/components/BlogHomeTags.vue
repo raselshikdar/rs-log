@@ -16,7 +16,7 @@ const docs = useArticles()
 const homeTagsConfig = useHomeTagsConfig()
 const showTags = computed(() => !!(homeTagsConfig.value ?? true))
 const title = computed(() => (typeof homeTagsConfig.value === 'boolean' || !homeTagsConfig.value?.title)
-  ? `${tagsSvgStr}标签`
+  ? `${tagsSvgStr}Tags`
   : homeTagsConfig.value?.title
 )
 const tags = computed(() => {

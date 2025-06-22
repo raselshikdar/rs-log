@@ -49,12 +49,12 @@ const titles = computed(() => (frontmatter.value?.blog?.analysis?.articles?.titl
       <div class="split" />
       <div class="overview-item">
         <span class="count">+{{ currentMonth?.length }}</span>
-        <span class="label">{{ titles[1] || 'Updates this month' }}</span>
+        <span class="label">{{ titles[1] || 'This month' }}</span>
       </div>
       <div class="split" />
       <div class="overview-item">
         <span class="count">+{{ currentWeek?.length }}</span>
-        <span class="label">{{ titles[2] || 'Updates this week' }}</span>
+        <span class="label">{{ titles[2] || 'This week' }}</span>
       </div>
     </div>
   </div>

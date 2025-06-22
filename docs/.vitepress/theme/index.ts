@@ -1,4 +1,6 @@
 import BlogTheme from '../../../sugar-blog/packages/theme'
+import type { Theme } from 'vitepress'
+import CommentWaline from './components/CommentWaline.vue'
 
 // 自定义样式重载
 // import './style.scss'
@@ -7,3 +9,7 @@ import BlogTheme from '../../../sugar-blog/packages/theme'
 // import './user-theme.css'
 
 export default BlogTheme
+
+export const enhanceApp: Theme['enhanceApp'] = ({ app }) => {
+  app.component('CommentWaline', CommentWaline)
+}

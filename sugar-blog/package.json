@@ -1,0 +1,73 @@
+{
+  "name": "sugar-wiki-monorepo",
+  "type": "module",
+  "version": "2.0.0",
+  "private": true,
+  "description": "个人博客&知识&文档站集",
+  "author": "sugar",
+  "license": "MIT",
+  "homepage": "https://github.com/ATQQ/sugar-blog#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ATQQ/sugar-blog.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ATQQ/sugar-blog/issues"
+  },
+  "keywords": [],
+  "scripts": {
+    "dev": "pnpm --filter blogpress dev",
+    "dev:theme": "pnpm --filter @sugarat/theme dev",
+    "build": "pnpm --filter blogpress build",
+    "buildTheme": "pnpm --filter @sugarat/theme build",
+    "buildlib": "pnpm run /^build:.*/",
+    "build:shared": "pnpm --filter @sugarat/theme-shared build",
+    "build:pagefind": "wait-on packages/shared/dist && pnpm --filter vitepress-plugin-pagefind build",
+    "build:rss": "wait-on packages/shared/dist && pnpm --filter vitepress-plugin-rss build",
+    "build:51la": "pnpm --filter vitepress-plugin-51la build",
+    "build:announcement": "pnpm --filter vitepress-plugin-announcement build",
+    "build:create": "pnpm --filter @sugarat/create-theme build",
+    "build:theme-only": "wait-on packages/vitepress-plugin-announcement/dist packages/vitepress-plugin-51la/dist packages/vitepress-plugin-rss/dist packages/vitepress-plugin-pagefind/dist && pnpm --filter @sugarat/theme build:node",
+    "serve": "pnpm --filter blogpress serve",
+    "lint": "eslint .",
+    "deploy": "zx deploy.mjs",
+    "deploy:theme": "zx deploy-theme.mjs",
+    "release:only": "changeset publish",
+    "release:beta": "changeset publish --tag beta",
+    "pc": "pnpm changeset",
+    "pc:version": "pnpm changeset version",
+    "pcpe": "changeset pre enter beta",
+    "pcpe:exit": "changeset pre enter exit",
+    "postinstall": "npx simple-git-hooks",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "1.0.0-beta.3",
+    "@changesets/cli": "^2.26.2",
+    "@types/bun": "^1.0.4",
+    "@types/node": "^20.6.3",
+    "eslint": "^8.50.0",
+    "eslint-plugin-todo-ddl": "^1.1.1",
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.0.3",
+    "simple-git-hooks": "^2.9.0",
+    "tsup": " ^7.2.0",
+    "typescript": "5.1.6",
+    "wait-on": "^7.0.1",
+    "zx": "^5.3.0"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search",
+        "search-insights"
+      ]
+    }
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}

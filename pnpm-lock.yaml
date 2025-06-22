@@ -11,6 +11,9 @@ importers:
       '@element-plus/icons-vue':
         specifier: ^2.3.1
         version: 2.3.1(vue@3.5.12(typescript@5.8.3))
+      '@giscus/vue':
+        specifier: ^3.1.1
+        version: 3.1.1(vue@3.5.12(typescript@5.8.3))
       '@mdit-vue/shared':
         specifier: ^2.1.4
         version: 2.1.4
@@ -336,6 +339,11 @@ packages:
 
   '@giscus/vue@2.4.0':
     resolution: {integrity: sha512-QOxKHgsMT91myyQagP2v20YYAei1ByZuc3qcaYxbHx4AwOeyVrybDIuRFwG9YDv6OraC86jYnU4Ixd37ddC/0A==}
+    peerDependencies:
+      vue: '>=3.2.0'
+
+  '@giscus/vue@3.1.1':
+    resolution: {integrity: sha512-xgsc93MibRQ0d1glBxN1BrEREHTIf3BPYs/3R+UZHNqawFFoWBV6iJ7uVCXMqoEKZdE2c78B3aKt5gfGqo8I5A==}
     peerDependencies:
       vue: '>=3.2.0'
 
@@ -2244,6 +2252,11 @@ snapshots:
   '@floating-ui/utils@0.2.9': {}
 
   '@giscus/vue@2.4.0(vue@3.5.12(typescript@5.8.3))':
+    dependencies:
+      giscus: 1.6.0
+      vue: 3.5.12(typescript@5.8.3)
+
+  '@giscus/vue@3.1.1(vue@3.5.12(typescript@5.8.3))':
     dependencies:
       giscus: 1.6.0
       vue: 3.5.12(typescript@5.8.3)

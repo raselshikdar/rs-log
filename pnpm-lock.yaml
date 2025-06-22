@@ -35,6 +35,9 @@ importers:
       patch-package:
         specifier: ^8.0.0
         version: 8.0.0
+      swiper:
+        specifier: ^11.2.8
+        version: 11.2.8
       vitepress-markdown-timeline:
         specifier: ^1.0.1
         version: 1.2.2

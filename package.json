@@ -20,6 +20,7 @@
     "element-plus": "^2.7.2",
     "nprogress": "^0.2.0",
     "patch-package": "^8.0.0",
+    "swiper": "^11.2.8",
     "vitepress-markdown-timeline": "^1.0.1",
     "vitepress-plugin-tabs": "^0.7.1",
     "vue": "3.5.12"

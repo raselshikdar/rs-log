@@ -15,8 +15,9 @@
     "@sugarat/theme": "^0.5.4",
     "element-plus": "^2.7.2",
     "patch-package": "^8.0.0",
-    "vue": "3.5.12",
-    "vitepress-markdown-timeline": "^1.0.1"
+    "vitepress-markdown-timeline": "^1.0.1",
+    "vitepress-plugin-tabs": "^0.7.1",
+    "vue": "3.5.12"
   },
   "directories": {
     "doc": "docs"

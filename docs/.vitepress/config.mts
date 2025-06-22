@@ -66,14 +66,14 @@ export default defineConfig({
       type: 'giscus',
       options: {
         repo: 'raselshikdar/rs-log',
-        repoId: 'YOUR_REPO_ID',
+        repoId: 'R_kgDOO_chsA',
         category: 'General',
-        categoryId: 'YOUR_CATEGORY_ID',
+        categoryId: 'DIC_kwDOO_chsM4Cr2HD',
         mapping: 'pathname',
-        inputPosition: 'bottom',
+        inputPosition: 'top',
         lang: 'en',
         reactionsEnabled: true,
-        theme: 'light'
+        theme: 'preferred_color_scheme'
       }
     }
   }

@@ -1,3 +1,3 @@
 <template>
-  <div>时间线页面</div>
+  <div>Timeline</div>
 </template>

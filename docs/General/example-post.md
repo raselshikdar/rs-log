@@ -12,3 +12,7 @@ Welcome to my new blog powered by VitePress and the @sugarat/theme.
 In this post, I’m testing the Waline comment system.
 
 If everything is set up correctly, you should see a comment section below. Feel free to leave a comment!
+
+## Comments
+
+<Giscus />

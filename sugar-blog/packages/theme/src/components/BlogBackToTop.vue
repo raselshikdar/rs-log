@@ -62,17 +62,22 @@ const iconSVGStr = computed(() => backToTopConfig?.value?.icon)
     border-radius: 50%;
     position: relative;
     right: -80px;
-    background-color: var(--vp-c-bg);
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background-color: var(--vp-c-brand-soft);
+    color: var(--vp-c-brand-1);
     box-shadow: var(--box-shadow);
-    padding: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--vp-c-brand-soft);
-    color: var(--vp-c-brand-1);
 
     &:hover {
       box-shadow: var(--box-shadow-hover);
+    }
+
+    svg {
+      pointer-events: none;
     }
   }
 }

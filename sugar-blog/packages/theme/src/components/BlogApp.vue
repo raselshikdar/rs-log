@@ -15,6 +15,7 @@ import BlogFooter from './BlogFooter.vue'
 import BlogHomeHeaderAvatar from './BlogHomeHeaderAvatar.vue'
 import BlogBackToTop from './BlogBackToTop.vue'
 import CommentGiscus from './CommentGiscus.vue'
+import CommentWaline from './CommentWaline.vue'
 import BlogOml2d from './BlogOml2d.vue'
 
 import CommentArtalk from './CommentArtalk.vue'
@@ -86,6 +87,7 @@ const openTransition = useDarkTransitionConfig()
         <BlogCommentWrapper>
           <CommentArtalk />
           <CommentGiscus />
+          <CommentWaline />
         </BlogCommentWrapper>
       </ClientOnly>
     </template>

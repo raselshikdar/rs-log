@@ -3,19 +3,22 @@
 </template>
 
 <script setup>
-import { onMounted, watch } from 'vue'
+import { onMounted, ref, watch, onBeforeUnmount } from 'vue'
 import { useColorMode } from '@vueuse/core'
 
 const WALINE_SCRIPT = 'https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js'
 const colorMode = useColorMode()
-
 let walineInstance = null
+const el = '#waline-comment'
 
-function initWaline() {
+function initWaline(theme) {
   if (!window.Waline) return
-
+  // Destroy previous instance if any
+  if (walineInstance && walineInstance.destroy) {
+    walineInstance.destroy()
+  }
   walineInstance = window.Waline({
-    el: '#waline-comment',
+    el,
     serverURL: 'https://raselverse-waline.vercel.app',
     emoji: [
       'https://unpkg.com/@waline/emojis@1.1.0/weibo',
@@ -27,30 +30,41 @@ function initWaline() {
     requiredMeta: ['nick', 'mail'],
     login: 'enable',
     pageview: true,
-    dark: colorMode.value === 'dark' ? 'auto' : 'light'  // use 'auto' for dark mode support
+    dark: theme, // 'auto', 'dark', 'light' or false
   })
 }
 
-onMounted(() => {
-  if (!window.Waline) {
+function loadScript() {
+  return new Promise((resolve) => {
+    if (window.Waline) {
+      resolve()
+      return
+    }
     const script = document.createElement('script')
     script.src = WALINE_SCRIPT
-    script.onload = () => {
-      initWaline()
-    }
+    script.onload = () => resolve()
     document.head.appendChild(script)
-  } else {
-    initWaline()
-  }
+  })
+}
+
+onMounted(async () => {
+  await loadScript()
+  const theme = colorMode.value === 'dark' ? 'auto' : false
+  initWaline(theme)
 
   watch(colorMode, (newMode) => {
-    if (walineInstance?.updateTheme) {
-      walineInstance.updateTheme(newMode === 'dark' ? 'auto' : 'light')
-    }
+    const newTheme = newMode === 'dark' ? 'auto' : false
+    initWaline(newTheme)
   })
+})
+
+onBeforeUnmount(() => {
+  if (walineInstance && walineInstance.destroy) {
+    walineInstance.destroy()
+  }
 })
 </script>
 
 <style scoped>
-/* Add any Waline-specific styling overrides here */
+/* optional: custom styles */
 </style>

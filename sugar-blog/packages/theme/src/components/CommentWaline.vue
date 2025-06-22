@@ -3,69 +3,52 @@
 </template>
 
 <script setup>
-import { onMounted, watch, onBeforeUnmount } from 'vue'
-import { useColorMode } from '@vueuse/core'
+import { onMounted } from 'vue'
 
+// Import Waline script from CDN or npm package (if installed)
 const WALINE_SCRIPT = 'https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js'
-const colorMode = useColorMode()
 
-let walineInstance = null
-
-// Helper: initialize Waline
-function initWaline(theme = 'light') {
-  if (!window.Waline) return
-
-  if (walineInstance && walineInstance.destroy) {
-    walineInstance.destroy()
-  }
-
-  walineInstance = window.Waline({
-    el: '#waline-comment',
-    serverURL: 'https://raselverse-waline.vercel.app',
-    lang: 'en',
-    reaction: true,
-    emoji: [
-      'https://unpkg.com/@waline/emojis@1.1.0/weibo',
-      'https://unpkg.com/@waline/emojis@1.1.0/bilibili',
-      'https://unpkg.com/@waline/emojis@1.1.0/tieba'
-    ],
-    requiredMeta: ['nick', 'mail'],
-    login: 'enable',
-    pageview: true,
-    dark: theme === 'dark' ? 'html.dark' : false
-  })
-}
-
-// Load Waline script once
-function loadWalineScript() {
-  return new Promise((resolve) => {
-    if (window.Waline) {
-      resolve()
-    } else {
-      const script = document.createElement('script')
-      script.src = WALINE_SCRIPT
-      script.onload = resolve
-      document.head.appendChild(script)
+onMounted(() => {
+  if (!window.Waline) {
+    const script = document.createElement('script')
+    script.src = WALINE_SCRIPT
+    script.onload = () => {
+      window.Waline({
+        el: '#waline-comment',
+        serverURL: 'https://raselverse-waline.vercel.app', // Change this URL to your Waline server
+        emoji: [
+          'https://unpkg.com/@waline/emojis@1.1.0/weibo',
+          'https://unpkg.com/@waline/emojis@1.1.0/bilibili',
+          'https://unpkg.com/@waline/emojis@1.1.0/tieba'
+        ],
+        reaction: true,
+        lang: 'en',
+        requiredMeta: ['nick', 'mail'],
+        login: 'enable',
+        pageview: true
+      })
     }
-  })
-}
-
-onMounted(async () => {
-  await loadWalineScript()
-  initWaline(colorMode.value)
-
-  watch(colorMode, (mode) => {
-    initWaline(mode)
-  })
-})
-
-onBeforeUnmount(() => {
-  if (walineInstance && walineInstance.destroy) {
-    walineInstance.destroy()
+    document.head.appendChild(script)
+  } else {
+    // If Waline already loaded, just init again
+    window.Waline({
+      el: '#waline-comment',
+      serverURL: 'https://raselverse-waline.vercel.app', // Your server URL here
+      emoji: [
+        'https://unpkg.com/@waline/emojis@1.1.0/weibo',
+        'https://unpkg.com/@waline/emojis@1.1.0/bilibili',
+        'https://unpkg.com/@waline/emojis@1.1.0/tieba'
+      ],
+      reaction: true,
+      lang: 'en',
+      requiredMeta: ['nick', 'mail'],
+      login: 'enable',
+      pageview: true
+    })
   }
 })
 </script>
 
 <style scoped>
-/* Optional: minimal styling if needed */
+/* You can add Waline styling overrides here if needed */
 </style>

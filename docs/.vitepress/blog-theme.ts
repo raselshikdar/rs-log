@@ -7,10 +7,8 @@ const blogTheme = getThemeConfig({
 
   themeColor: 'el-blue',
 
-  // Default author of articles
   author: 'Rasel Shikdar',
 
-  // Friend links - only one friend link kept
   friend: [
     {
       nickname: 'RsLog',
@@ -21,19 +19,28 @@ const blogTheme = getThemeConfig({
     },
   ],
 
-  // Comment system configuration using Giscus
+  // Remove or comment out the Giscus comment block to disable it:
+  // comment: {
+  //   type: 'giscus',
+  //   options: {
+  //     repo: 'raselshikdar/rs-log',
+  //     repoId: 'R_kgDOO_chsA',
+  //     category: 'General',
+  //     categoryId: 'DIC_kwDOO_chsM4Cr2HD',
+  //     inputPosition: 'top',
+  //   },
+  // },
+
+  // If you have Waline, add its config here, e.g.:
   comment: {
-    type: 'giscus',
+    type: 'waline',
     options: {
-      repo: 'raselshikdar/rs-log',
-      repoId: 'R_kgDOO_chsA',
-      category: 'General',
-      categoryId: 'DIC_kwDOO_chsM4Cr2HD',
-      inputPosition: 'top',
+      // Your Waline options here
+      serverURL: 'https://your-waline-server.com',
+      // other Waline configs...
     },
   },
 
-  // Appreciation button configuration
   buttonAfterArticle: {
     openTitle: 'Support with a "Tip"',
     closeTitle: 'Maybe next time',
@@ -41,7 +48,6 @@ const blogTheme = getThemeConfig({
     icon: 'wechatPay',
   },
 
-  // Announcement popover configuration
   popover: {
     title: 'Announcement',
     body: [

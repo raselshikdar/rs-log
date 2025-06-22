@@ -13,54 +13,71 @@ import { blogTheme } from './blog-theme'
 // VitePress default configuration
 // See docs: https://vitepress.dev/reference/site-config
 export default defineConfig({
-  // Extend the blog theme (@sugarat/theme)
-  extends: blogTheme,
-  // base,
-  lang: 'en-US',
-  title: 'RsLog',
-  description: 'A journal of ideas, by Rasel Shikdar',
-  lastUpdated: true,
-  // See: https://vitepress.dev/zh/reference/site-config#head
-  head: [
-    // Configure the site icon (shown on browser tab)
-    // ['link', { rel: 'icon', href: `${base}favicon.ico` }], // If base is modified, update this too
-    ['link', { rel: 'icon', href: '/favicon.ico' }]
-  ],
-  themeConfig: {
-    // Show level 2 and 3 headers in the outline
-    outline: {
-      level: [2, 3],
-      label: 'Table of Contents'
-    },
-    // Default text labels
-    returnToTopLabel: 'Back to Top',
-    sidebarMenuLabel: 'Related Articles',
-    lastUpdatedText: 'Last Updated',
+// Extend the blog theme (@sugarat/theme)
+extends: blogTheme,
+// base,
+lang: 'en-US',
+title: 'RsLog',
+description: 'A journal of ideas, by Rasel Shikdar',
+lastUpdated: true,
+// See: https://vitepress.dev/zh/reference/site-config#head
+head: [
+// Configure the site icon (shown on browser tab)
+// ['link', { rel: 'icon', href: ${base}favicon.ico }], // If base is modified, update this too
+['link', { rel: 'icon', href: '/favicon.ico' }]
+],
+themeConfig: {
+// Show level 2 and 3 headers in the outline
+outline: {
+level: [2, 3],
+label: 'Table of Contents'
+},
+// Default text labels
+returnToTopLabel: 'Back to Top',
+sidebarMenuLabel: 'Related Articles',
+lastUpdatedText: 'Last Updated',
 
-    // Set logo
-    logo: '/logo.png',
-    // editLink: {
-    //   pattern:
-    //     'https://github.com/ATQQ/sugar-blog/tree/master/packages/blogpress/:path',
-    //   text: 'Edit this page on GitHub'
-    // },
-    nav: [
-      { text: 'Homepage', link: '/' },
-      { text: 'About me', link: '/about.html' }
-    ],
-    socialLinks: [
-      {
-        icon: 'github',
-        link: 'https://github.com/raselshikdar'
-      },
-      {
-        icon: 'x',
-        link: 'https://x.com/raselshikdar_'
-      },
-      {
-        icon: 'facebook',
-        link: 'https://x.com/raselshiikdar'
-      }
-    ]
-  }
+// Set logo  
+logo: '/logo.png',  
+// editLink: {  
+//   pattern:  
+//     'https://github.com/ATQQ/sugar-blog/tree/master/packages/blogpress/:path',  
+//   text: 'Edit this page on GitHub'  
+// },  
+nav: [  
+  { text: 'Homepage', link: '/' },  
+  { text: 'About me', link: '/about.html' }  
+],  
+socialLinks: [  
+  {  
+    icon: 'github',  
+    link: 'https://github.com/raselshikdar'  
+  },  
+  {  
+    icon: 'x',  
+    link: 'https://x.com/raselshikdar_'  
+  },  
+  {  
+    icon: 'facebook',  
+    link: 'https://x.com/raselshiikdar'  
+  }  
+],  
+comment: {
+
+type: 'waline',
+options: {
+serverURL: 'https://raselverse-waline.vercel.app/', // Replace with your actual server URL
+lang: 'en',
+reaction: true,
+emoji: [
+'https://unpkg.com/@waline/emojis@1.1.0/weibo',
+'https://unpkg.com/@waline/emojis@1.1.0/bilibili',
+'https://unpkg.com/@waline/emojis@1.1.0/tieba'
+],
+requiredMeta: ['name', 'email'],
+login: 'enable',
+pageview: true
+}
+}
+}
 })

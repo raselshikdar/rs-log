@@ -18,12 +18,13 @@ const initWaline = () => {
   walineInstance = window.Waline({
     el: '#waline-comment',
     serverURL: 'https://raselverse-waline.vercel.app',
+    // ❤️ Like button only
+    reaction: ['❤️'],
     emoji: [
       'https://unpkg.com/@waline/emojis@1.1.0/weibo',
       'https://unpkg.com/@waline/emojis@1.1.0/bilibili',
       'https://unpkg.com/@waline/emojis@1.1.0/tieba'
     ],
-    reaction: true,
     lang: 'en',
     requiredMeta: ['nick', 'mail'],
     login: 'enable',

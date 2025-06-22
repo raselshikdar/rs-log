@@ -44,17 +44,17 @@ const titles = computed(() => (frontmatter.value?.blog?.analysis?.articles?.titl
     <div class="overview-data">
       <div class="overview-item">
         <span class="count">{{ notHiddenArticles.length }}</span>
-        <span class="label">{{ titles[0] || '博客文章' }}</span>
+        <span class="label">{{ titles[0] || 'Articles' }}</span>
       </div>
       <div class="split" />
       <div class="overview-item">
         <span class="count">+{{ currentMonth?.length }}</span>
-        <span class="label">{{ titles[1] || '本月更新' }}</span>
+        <span class="label">{{ titles[1] || 'Updates this month' }}</span>
       </div>
       <div class="split" />
       <div class="overview-item">
         <span class="count">+{{ currentWeek?.length }}</span>
-        <span class="label">{{ titles[2] || '本周更新' }}</span>
+        <span class="label">{{ titles[2] || 'Updates this week' }}</span>
       </div>
     </div>
   </div>

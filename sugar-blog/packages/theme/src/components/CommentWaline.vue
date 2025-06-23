@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, onUnmounted, watch } from 'vue'
 import { useData } from 'vitepress'
-import { init } from '@waline/client' // ✅ correct named import
+import { init } from '@waline/client'
 
 const { isDark } = useData()
 let walineInstance = null
@@ -25,6 +25,14 @@ const initWaline = () => {
       'https://unpkg.com/@waline/emojis@1.1.0/weibo',
       'https://unpkg.com/@waline/emojis@1.1.0/bilibili',
       'https://unpkg.com/@waline/emojis@1.1.0/tieba'
+    ],
+    reaction: [
+      'https://unpkg.com/@waline/emojis@1.1.0/tieba/tieba_agree.png',
+      'https://unpkg.com/@waline/emojis@1.1.0/tieba/tieba_look_down.png',
+      'https://unpkg.com/@waline/emojis@1.1.0/tieba/tieba_sunglasses.png',
+      'https://unpkg.com/@waline/emojis@1.1.0/tieba/tieba_pick_nose.png',
+      'https://unpkg.com/@waline/emojis@1.1.0/tieba/tieba_awkward.png',
+      'https://unpkg.com/@waline/emojis@1.1.0/tieba/tieba_sleep.png'
     ],
     lang: 'en',
     requiredMeta: ['nick', 'mail'],

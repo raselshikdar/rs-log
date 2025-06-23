@@ -1,2 +1,5 @@
+
 User-agent: *
 Allow: /
+
+Sitemap: https://rslog.vercel.app/sitemap.xml

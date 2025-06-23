@@ -17,6 +17,12 @@ const blogTheme = getThemeConfig({
         'https://img.cdn.sugarat.top/mdImg/MTY3NDk5NTE2NzAzMA==674995167030',
       url: 'https://rslog.vercel.app',
     },
+    {
+      nickname: 'Vitepress',
+      des: 'Vite & Vue Powered Static Site Generator',
+      avatar: 'https://vitepress.dev/vitepress-logo-large.webp',
+      url: 'https://vitepress.dev/'
+    }
   ],
 
   // Remove or comment out the Giscus comment block to disable it:

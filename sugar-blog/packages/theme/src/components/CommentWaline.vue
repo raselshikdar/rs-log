@@ -1,13 +1,19 @@
 <script setup>
 import { onMounted, onUnmounted, watch } from 'vue'
 import { useData } from 'vitepress'
-
-// Import Waline JS and CSS locally inside the component
 import Waline from '@waline/client'
-import '@waline/client/dist/waline.css'  // <-- Import Waline CSS here
 
 const { isDark } = useData()
 let walineInstance = null
+
+const loadWalineCSS = () => {
+  if (document.getElementById('waline-style')) return
+  const link = document.createElement('link')
+  link.id = 'waline-style'
+  link.rel = 'stylesheet'
+  link.href = 'https://unpkg.com/@waline/client@3.5.7/dist/waline.css'
+  document.head.appendChild(link)
+}
 
 const initWaline = () => {
   if (walineInstance) walineInstance.destroy()
@@ -38,6 +44,7 @@ const initWaline = () => {
 }
 
 onMounted(() => {
+  loadWalineCSS()
   initWaline()
   watch(isDark, initWaline)
 })

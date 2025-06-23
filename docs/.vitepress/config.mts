@@ -17,7 +17,7 @@ export default defineConfig({
   extends: blogTheme,
   // base,
   lang: 'en-US',
-  title: 'RsLog',
+  title: 'Rasel Shikdar',
   description: 'A journal of ideas, by Rasel Shikdar',
   lastUpdated: true,
   // See: https://vitepress.dev/zh/reference/site-config#head

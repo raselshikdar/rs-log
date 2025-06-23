@@ -1,8 +1,7 @@
 <script setup>
 import { onMounted, onUnmounted, watch } from 'vue'
 import { useData } from 'vitepress'
-import { init } from '@waline/client' // ✅ correct import
-// Do not import CSS from node_modules — we inject manually
+import { init } from '@waline/client' // ✅ correct named import
 
 const { isDark } = useData()
 let walineInstance = null
@@ -27,20 +26,11 @@ const initWaline = () => {
       'https://unpkg.com/@waline/emojis@1.1.0/bilibili',
       'https://unpkg.com/@waline/emojis@1.1.0/tieba'
     ],
-    reaction: [
-      'https://unpkg.com/@waline/emojis@1.1.0/qq/点赞.gif',
-      'https://unpkg.com/@waline/emojis@1.1.0/qq/喜欢.gif',
-      'https://unpkg.com/@waline/emojis@1.1.0/qq/大笑.gif',
-      'https://unpkg.com/@waline/emojis@1.1.0/qq/惊讶.gif',
-      'https://unpkg.com/@waline/emojis@1.1.0/qq/流泪.gif'
-    ],
     lang: 'en',
     requiredMeta: ['nick', 'mail'],
     login: 'enable',
     pageview: true,
-    dark: isDark.value ? 'html.dark' : false,
-    reactionCDN: 'https://unpkg.com/@waline/emojis@1.1.0/qq/',
-    reactionText: ['Like', 'Love', 'Haha', 'Wow', 'Sad']
+    dark: isDark.value ? 'html.dark' : false
   })
 }
 

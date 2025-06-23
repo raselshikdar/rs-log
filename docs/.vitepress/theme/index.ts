@@ -1,5 +1,4 @@
 import BlogTheme from '../../../sugar-blog/packages/theme'
-import './style.scss' // ✅ this will load waline.css from CDN
 
 // 自定义样式重载
 // import './style.scss'

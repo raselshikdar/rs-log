@@ -31,7 +31,7 @@ export default defineConfig({
     ]
   },
   themeConfig: {
-    logo: '/logo.png',
+    logo: '/logo.webp',
     nav: [
       {
         text: `v${packageJSON.version}`,

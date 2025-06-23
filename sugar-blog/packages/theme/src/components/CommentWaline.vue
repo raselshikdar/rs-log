@@ -22,15 +22,15 @@ const initWaline = () => {
     el: '#waline-comment',
     serverURL: 'https://raselverse-waline.vercel.app',
     emoji: [
-      'https://unpkg.com/@waline/emojis@1.3.0/bilibili' // Bilibili pack for emoji picker
+      'https://unpkg.com/@waline/emojis@1.4.0/tw-emoji'
     ],
     reaction: [
-      'https://unpkg.com/@waline/emojis@1.3.0/bilibili/like.png',     // 👍 Like
-      'https://unpkg.com/@waline/emojis@1.3.0/bilibili/love.png',     // ❤️ Love
-      'https://unpkg.com/@waline/emojis@1.3.0/bilibili/haha.png',     // 😆 Haha
-      'https://unpkg.com/@waline/emojis@1.3.0/bilibili/wow.png',      // 😲 Wow
-      'https://unpkg.com/@waline/emojis@1.3.0/bilibili/sad.png',      // 😢 Sad
-      'https://unpkg.com/@waline/emojis@1.3.0/bilibili/angry.png'     // 😠 Angry
+      'https://unpkg.com/@waline/emojis@1.4.0/tw-emoji/thumbs_up.png',    // 👍 Like
+      'https://unpkg.com/@waline/emojis@1.4.0/tw-emoji/red_heart.png',     // ❤️ Love
+      'https://unpkg.com/@waline/emojis@1.4.0/tw-emoji/face_with_tears_of_joy.png', // 😆 Haha
+      'https://unpkg.com/@waline/emojis@1.4.0/tw-emoji/astonished_face.png', // 😲 Wow
+      'https://unpkg.com/@waline/emojis@1.4.0/tw-emoji/crying_face.png',     // 😢 Sad
+      'https://unpkg.com/@waline/emojis@1.4.0/tw-emoji/angry_face.png'       // 😠 Angry
     ],
     lang: 'en',
     requiredMeta: ['nick', 'mail'],

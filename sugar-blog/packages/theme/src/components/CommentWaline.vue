@@ -1,7 +1,8 @@
 <script setup>
 import { onMounted, onUnmounted, watch } from 'vue'
 import { useData } from 'vitepress'
-import Waline from '@waline/client'
+import { init } from '@waline/client' // ✅ correct import
+// Do not import CSS from node_modules — we inject manually
 
 const { isDark } = useData()
 let walineInstance = null
@@ -18,7 +19,7 @@ const loadWalineCSS = () => {
 const initWaline = () => {
   if (walineInstance) walineInstance.destroy()
 
-  walineInstance = Waline({
+  walineInstance = init({
     el: '#waline-comment',
     serverURL: 'https://raselverse-waline.vercel.app',
     emoji: [

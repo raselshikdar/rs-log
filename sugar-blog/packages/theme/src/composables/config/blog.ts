@@ -410,14 +410,22 @@ export function useAnalyzeTitles(wordCount: Ref<number>, readTime: ComputedRef<n
 }
 
 export function useFormatShowDate() {
-  const blog = useBlogConfig()
   return computed(() => {
     return function formatShowDate(date: any) {
-      const localDate = new Date(date)
-      const dhakaDate = new Date(
-        localDate.toLocaleString('en-US', { timeZone: 'Asia/Dhaka' })
-      )
-      return dhakaDate.toISOString().replace('T', ' ').slice(0, 16) // Format: YYYY-MM-DD HH:mm
+      const formatter = new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Asia/Dhaka',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+      })
+
+      const parts = formatter.formatToParts(new Date(date))
+      const get = (type: string) => parts.find(p => p.type === type)?.value.padStart(2, '0')
+
+      return `${get('year')}-${get('month')}-${get('day')} ${get('hour')}:${get('minute')}`
     }
   })
 }

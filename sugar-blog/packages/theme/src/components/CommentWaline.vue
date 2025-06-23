@@ -1,8 +1,12 @@
+<template>
+  <div id="waline-comment" />
+</template>
+
 <script setup>
 import { onMounted, onUnmounted, watch } from 'vue'
 import { useData } from 'vitepress'
 import Waline from '@waline/client'
-import '@waline/client/dist/waline.css'
+// ❌ No need to import CSS here
 
 const { isDark } = useData()
 let walineInstance = null

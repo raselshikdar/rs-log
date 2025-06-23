@@ -3,8 +3,12 @@ import { defineConfig } from 'vitepress'
 // Import the theme configuration
 import { blogTheme } from './blog-theme'
 
-// ✅ Import sitemap plugin
-import { sitemap } from 'vitepress-plugin-sitemap'
+// If deploying on public platforms like GitHub/Gitee Pages
+// Usually, you need to modify the base path, typically "/repository-name/"
+// If the project name is already set to name.github.io, no changes needed!
+// const base = process.env.GITHUB_ACTIONS === 'true'
+//   ? '/vitepress-blog-sugar-template/'
+//   : '/'
 
 // VitePress default configuration
 // See docs: https://vitepress.dev/reference/site-config
@@ -22,15 +26,6 @@ export default defineConfig({
     // ['link', { rel: 'icon', href: `${base}favicon.ico` }], // If base is modified, update this too
     ['link', { rel: 'icon', href: '/favicon.ico' }]
   ],
-  vite: {
-    plugins: [
-      // ✅ Add sitemap plugin with hostname
-      sitemap({
-        hostname: 'https://rslog.rweb.site',
-        transformItems: items => items.filter(i => !i.url.includes('404'))
-      })
-    ]
-  },
   themeConfig: {
     // Show level 2 and 3 headers in the outline
     outline: {

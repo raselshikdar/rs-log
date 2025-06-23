@@ -38,7 +38,7 @@ export default defineConfig({
     lastUpdatedText: 'Last Updated',
 
     // Set logo
-    logo: '/logo.png',
+    logo: '/logo.webp',
     // editLink: {
     //   pattern:
     //     'https://github.com/ATQQ/sugar-blog/tree/master/packages/blogpress/:path',

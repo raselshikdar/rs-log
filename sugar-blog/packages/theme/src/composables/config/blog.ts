@@ -418,7 +418,7 @@ export function useFormatShowDate() {
 
     function formatShowDate(date: any) {
       const source = +new Date(date)
-      const now = +new Date()
+      const now = +new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Dhaka' }))
       const diff = now - source
       const oneSeconds = 1000
       const oneMinute = oneSeconds * 60

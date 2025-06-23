@@ -12,5 +12,5 @@ blog:
     - The essence of life lies not in prosperity, but in simplicity
   # Set inspiringTimeout to enable automatic switching
   inspiringTimeout: 3000
-  pageSize: 6
+  pageSize: 20
 ---

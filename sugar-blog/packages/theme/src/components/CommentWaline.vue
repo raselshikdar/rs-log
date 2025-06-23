@@ -1,12 +1,10 @@
-<template>
-  <div id="waline-comment" />
-</template>
-
 <script setup>
 import { onMounted, onUnmounted, watch } from 'vue'
 import { useData } from 'vitepress'
-import { init } from '@waline/client'
-// CSS is added globally via index.ts, so no CSS import here
+
+// Import Waline JS and CSS locally inside the component
+import Waline from '@waline/client'
+import '@waline/client/dist/waline.css'  // <-- Import Waline CSS here
 
 const { isDark } = useData()
 let walineInstance = null
@@ -14,7 +12,7 @@ let walineInstance = null
 const initWaline = () => {
   if (walineInstance) walineInstance.destroy()
 
-  walineInstance = init({
+  walineInstance = Waline({
     el: '#waline-comment',
     serverURL: 'https://raselverse-waline.vercel.app',
     emoji: [
@@ -48,3 +46,7 @@ onUnmounted(() => {
   walineInstance?.destroy()
 })
 </script>
+
+<template>
+  <div id="waline-comment" />
+</template>

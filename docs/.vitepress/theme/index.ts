@@ -1,4 +1,5 @@
 import BlogTheme from '../../../sugar-blog/packages/theme'
+import './style.css' // ✅ this will load waline.css from CDN
 
 // 自定义样式重载
 // import './style.scss'
@@ -6,9 +7,4 @@ import BlogTheme from '../../../sugar-blog/packages/theme'
 // 自定义主题色
 // import './user-theme.css'
 
-export default {
-  ...BlogTheme,
-  head: [
-    ['link', { rel: 'stylesheet', href: 'https://unpkg.com/@waline/client@3.5.7/dist/waline.css' }]
-  ]
-}
+export default BlogTheme

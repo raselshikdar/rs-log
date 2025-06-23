@@ -1,35 +1,37 @@
-const fs = require('fs');
-const path = require('path');
+// generate-sitemap.js
 
-const BASE_URL = 'https://rslog.vercel.app';
-const POSTS_DIR = path.join(__dirname, 'docs/posts');
-const DIST_PATH = path.join(__dirname, 'docs/.vitepress/dist/sitemap.xml');
+import { readdirSync, writeFileSync, statSync } from 'fs';
+import { join } from 'path';
 
-if (!fs.existsSync(POSTS_DIR)) {
-  console.error('❌ posts directory not found at:', POSTS_DIR);
-  process.exit(1);
+const docsDir = './docs';
+const baseUrl = 'https://rslog.vercel.app'; // change to your domain
+
+function getMarkdownPaths(dir) {
+  const entries = readdirSync(dir, { withFileTypes: true });
+  let paths = [];
+
+  for (const entry of entries) {
+    const fullPath = join(dir, entry.name);
+
+    if (entry.isDirectory()) {
+      if (['.vitepress', 'public'].includes(entry.name)) continue;
+      paths = paths.concat(getMarkdownPaths(fullPath));
+    } else if (entry.isFile() && entry.name.endsWith('.md')) {
+      const relativePath = fullPath.replace(/^\.\/docs/, '').replace(/\.md$/, '');
+      paths.push(`${baseUrl}${relativePath === '/index' ? '' : relativePath}`);
+    }
+  }
+
+  return paths;
 }
 
-const posts = fs.readdirSync(POSTS_DIR).filter(file => file.endsWith('.md'));
-
-const urls = posts.map(file => {
-  const slug = file.replace(/\.md$/, '');
-  return `<url>
-  <loc>${BASE_URL}/post/${slug}</loc>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-</url>`;
-});
+const urls = getMarkdownPaths(docsDir);
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>${BASE_URL}/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  ${urls.join('\n')}
-</urlset>`;
+${urls.map(url => `  <url><loc>${url}</loc></url>`).join('\n')}
+</urlset>
+`;
 
-fs.writeFileSync(DIST_PATH, sitemap);
-console.log('✅ sitemap.xml created successfully!');
+writeFileSync('./docs/sitemap.xml', sitemap);
+console.log('✅ sitemap.xml generated with', urls.length, 'entries.');

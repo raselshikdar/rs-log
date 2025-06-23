@@ -22,16 +22,11 @@ const initWaline = () => {
     el: '#waline-comment',
     serverURL: 'https://raselverse-waline.vercel.app',
     emoji: [
-      'https://unpkg.com/@waline/emojis@1.4.0/tw-emoji'
+      'https://unpkg.com/@waline/emojis@1.1.0/tieba',
+      'https://unpkg.com/@waline/emojis@1.1.0/weibo',
+      'https://unpkg.com/@waline/emojis@1.1.0/bilibili'
     ],
-    reaction: [
-      'https://unpkg.com/@waline/emojis@1.4.0/tw-emoji/thumbs_up.png',    // 👍 Like
-      'https://unpkg.com/@waline/emojis@1.4.0/tw-emoji/red_heart.png',     // ❤️ Love
-      'https://unpkg.com/@waline/emojis@1.4.0/tw-emoji/face_with_tears_of_joy.png', // 😆 Haha
-      'https://unpkg.com/@waline/emojis@1.4.0/tw-emoji/astonished_face.png', // 😲 Wow
-      'https://unpkg.com/@waline/emojis@1.4.0/tw-emoji/crying_face.png',     // 😢 Sad
-      'https://unpkg.com/@waline/emojis@1.4.0/tw-emoji/angry_face.png'       // 😠 Angry
-    ],
+    reaction: true,  // ✅ Use built-in set
     lang: 'en',
     requiredMeta: ['nick', 'mail'],
     login: 'enable',

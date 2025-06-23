@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rslog.vercel.app/sitemap.xml
+Sitemap: https://rasel.jsx.pm/sitemap.xml

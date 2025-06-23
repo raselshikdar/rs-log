@@ -21,6 +21,7 @@ export default defineConfig({
   description: 'A journal of ideas, by Rasel Shikdar',
   lastUpdated: true,
   // See: https://vitepress.dev/zh/reference/site-config#head
+publicDir: 'docs/public', // ✅ This line ensures sitemap.xml is copied to output
   head: [
     // Configure the site icon (shown on browser tab)
     // ['link', { rel: 'icon', href: `${base}favicon.ico` }], // If base is modified, update this too

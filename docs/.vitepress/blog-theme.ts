@@ -15,7 +15,7 @@ const blogTheme = getThemeConfig({
       des: 'A journal of ideas, by Rasel Shikdar',
       avatar:
         'https://img.cdn.sugarat.top/mdImg/MTY3NDk5NTE2NzAzMA==674995167030',
-      url: 'https://rslog.vercel.app',
+      url: 'https://rasel.jsx.pm',
     },
     {
       nickname: 'Vitepress',

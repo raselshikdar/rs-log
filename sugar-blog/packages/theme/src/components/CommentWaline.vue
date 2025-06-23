@@ -22,17 +22,26 @@ const initWaline = () => {
     el: '#waline-comment',
     serverURL: 'https://raselverse-waline.vercel.app',
     emoji: [
-      'https://unpkg.com/@waline/emojis@1.1.0/weibo',
-      'https://unpkg.com/@waline/emojis@1.1.0/bilibili',
-      'https://unpkg.com/@waline/emojis@1.1.0/tieba'
+      'https://unpkg.com/@waline/emojis@1.3.0/bmoji'
     ],
     reaction: [
-      'https://unpkg.com/@waline/emojis@1.1.0/tieba/tieba_agree.png',
-      'https://unpkg.com/@waline/emojis@1.1.0/tieba/tieba_look_down.png',
-      'https://unpkg.com/@waline/emojis@1.1.0/tieba/tieba_sunglasses.png',
-      'https://unpkg.com/@waline/emojis@1.1.0/tieba/tieba_pick_nose.png',
-      'https://unpkg.com/@waline/emojis@1.1.0/tieba/tieba_awkward.png',
-      'https://unpkg.com/@waline/emojis@1.1.0/tieba/tieba_sleep.png'
+      // 👍 Like / Thumb Up
+      'https://unpkg.com/@waline/emojis@1.3.0/bmoji/bmoji_thumb_up.png',
+
+      // ❤️ Love
+      'https://unpkg.com/@waline/emojis@1.3.0/bmoji/bmoji_love.png',
+
+      // 😲 Wow
+      'https://unpkg.com/@waline/emojis@1.3.0/bmoji/bmoji_amazed.png',
+
+      // 😆 Haha
+      'https://unpkg.com/@waline/emojis@1.3.0/bmoji/bmoji_laugh.png',
+
+      // 😢 Crying
+      'https://unpkg.com/@waline/emojis@1.3.0/bmoji/bmoji_crying.png',
+
+      // 😠 Angry
+      'https://unpkg.com/@waline/emojis@1.3.0/bmoji/bmoji_angry.png'
     ],
     lang: 'en',
     requiredMeta: ['nick', 'mail'],

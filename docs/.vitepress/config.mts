@@ -75,6 +75,30 @@ export default defineConfig({
         reactionsEnabled: true,
         theme: 'preferred_color_scheme'
       }
+    },
+
+    // 👇 ADDED blog config with formatShowDate
+    blog: {
+      formatShowDate: (date: string) => {
+        const source = +new Date(new Date(date).toLocaleString('en-US', { timeZone: 'Asia/Dhaka' }))
+        const now = +new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Dhaka' }))
+        const diff = now - source
+
+        const oneSecond = 1000
+        const oneMinute = oneSecond * 60
+        const oneHour = oneMinute * 60
+        const oneDay = oneHour * 24
+        const oneWeek = oneDay * 7
+
+        if (diff < 10) return ' just now'
+        if (diff < oneMinute) return `${Math.floor(diff / oneSecond)} seconds ago`
+        if (diff < oneHour) return `${Math.floor(diff / oneMinute)} minutes ago`
+        if (diff < oneDay) return `${Math.floor(diff / oneHour)} hours ago`
+        if (diff < oneWeek) return `${Math.floor(diff / oneDay)} days ago`
+
+        const localDate = new Date(new Date(date).toLocaleString('en-US', { timeZone: 'Asia/Dhaka' }))
+        return localDate.toISOString().slice(0, 10) // e.g., 2025-06-23
+      }
     }
   }
 })

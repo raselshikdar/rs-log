@@ -417,24 +417,14 @@ export function useFormatShowDate() {
     }
 
     function formatShowDate(date: any) {
-  const source = new Date(date).getTime()
-const now = new Date().getTime() + (6 * 60 * 60 * 1000) - (new Date().getTimezoneOffset() * 60 * 1000)
-      const diff = now - source
-      const oneSeconds = 1000
-      const oneMinute = oneSeconds * 60
-      const oneHour = oneMinute * 60
-      const oneDay = oneHour * 24
-      const oneWeek = oneDay * 7
+  const localDate = new Date(date)
 
-      const langMap = {
-        justNow: ' just now',
-        secondsAgo: ' seconds ago',
-        minutesAgo: ' minutes ago',
-        hoursAgo: ' hours ago',
-        daysAgo: ' days ago',
-        weeksAgo: ' weeks ago',
-        ...blog.value?.formatShowDate
-      }
+  const dhakaDate = new Date(
+    localDate.toLocaleString('en-US', { timeZone: 'Asia/Dhaka' })
+  )
+
+  return dhakaDate.toISOString().replace('T', ' ').slice(0, 16)
+    }
       const mapValue = langMap
 
       if (diff < 10) {

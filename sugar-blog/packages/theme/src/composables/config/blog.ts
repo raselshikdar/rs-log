@@ -412,54 +412,12 @@ export function useAnalyzeTitles(wordCount: Ref<number>, readTime: ComputedRef<n
 export function useFormatShowDate() {
   const blog = useBlogConfig()
   return computed(() => {
-    if (typeof blog.value?.formatShowDate === 'function') {
-      return blog.value.formatShowDate
+    return function formatShowDate(date: any) {
+      const localDate = new Date(date)
+      const dhakaDate = new Date(
+        localDate.toLocaleString('en-US', { timeZone: 'Asia/Dhaka' })
+      )
+      return dhakaDate.toISOString().replace('T', ' ').slice(0, 16) // Format: YYYY-MM-DD HH:mm
     }
-
-    function formatShowDate(date: any) {
-      const source = new Date(date).getTime()
-      // Get current time adjusted to Asia/Dhaka timezone
-      const now = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Dhaka' })).getTime()
-      const diff = now - source
-
-      const oneSeconds = 1000
-      const oneMinute = oneSeconds * 60
-      const oneHour = oneMinute * 60
-      const oneDay = oneHour * 24
-      const oneWeek = oneDay * 7
-
-      const langMap = {
-        justNow: ' just now',
-        secondsAgo: ' seconds ago',
-        minutesAgo: ' minutes ago',
-        hoursAgo: ' hours ago',
-        daysAgo: ' days ago',
-        weeksAgo: ' weeks ago',
-        ...blog.value?.formatShowDate
-      }
-      const mapValue = langMap
-
-      if (diff < 10) {
-        return mapValue.justNow
-      }
-      if (diff < oneMinute) {
-        return `${Math.floor(diff / oneSeconds)}${mapValue.secondsAgo}`
-      }
-      if (diff < oneHour) {
-        return `${Math.floor(diff / oneMinute)}${mapValue.minutesAgo}`
-      }
-      if (diff < oneDay) {
-        return `${Math.floor(diff / oneHour)}${mapValue.hoursAgo}`
-      }
-      if (diff < oneWeek) {
-        return `${Math.floor(diff / oneDay)}${mapValue.daysAgo}`
-      }
-
-      // For posts older than one week, show absolute date in Asia/Dhaka timezone
-      const localDate = new Date(new Date(date).toLocaleString('en-US', { timeZone: 'Asia/Dhaka' }))
-      return localDate.toISOString().slice(0, 10)
-    }
-
-    return formatShowDate
   })
 }

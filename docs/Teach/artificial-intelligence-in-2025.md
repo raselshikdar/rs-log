@@ -1,6 +1,6 @@
 ---
 title: "The Latest Advancements in Artificial Intelligence in 2025"
-date: 2025-06-23T11:00:00+06:00
+date: 2025-06-23T12:28:00+06:00
 description: "A quick overview of some of the most exciting AI breakthroughs happening in 2025."
 tags:
   - AI

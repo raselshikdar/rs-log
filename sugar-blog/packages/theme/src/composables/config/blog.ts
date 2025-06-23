@@ -427,12 +427,12 @@ export function useFormatShowDate() {
       const oneWeek = oneDay * 7
 
       const langMap = {
-        justNow: 'just now',
-        secondsAgo: 'seconds ago',
-        minutesAgo: 'minutes ago',
-        hoursAgo: 'hours ago',
-        daysAgo: 'days ago',
-        weeksAgo: 'weeks ago',
+        justNow: ' just now',
+        secondsAgo: ' seconds ago',
+        minutesAgo: ' minutes ago',
+        hoursAgo: ' hours ago',
+        daysAgo: ' days ago',
+        weeksAgo: ' weeks ago',
         ...blog.value?.formatShowDate
       }
       const mapValue = langMap
@@ -453,7 +453,8 @@ export function useFormatShowDate() {
         return `${Math.floor(diff / oneDay)}${mapValue.daysAgo}`
       }
 
-      return formatDate(new Date(date), 'yyyy-MM-dd')
+      const localDate = new Date(new Date(date).toLocaleString('en-US', { timeZone: 'Asia/Dhaka' }))
+return localDate.toISOString().slice(0, 10)
     }
     return formatShowDate
   })

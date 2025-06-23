@@ -412,6 +412,8 @@ export function useAnalyzeTitles(wordCount: Ref<number>, readTime: ComputedRef<n
 export function useFormatShowDate() {
   return computed(() => {
     return function formatShowDate(date: any) {
+      const utcDate = new Date(date)
+
       const formatter = new Intl.DateTimeFormat('en-GB', {
         timeZone: 'Asia/Dhaka',
         year: 'numeric',
@@ -422,7 +424,7 @@ export function useFormatShowDate() {
         hour12: false
       })
 
-      const parts = formatter.formatToParts(new Date(date))
+      const parts = formatter.formatToParts(utcDate)
       const get = (type: string) => parts.find(p => p.type === type)?.value.padStart(2, '0')
 
       return `${get('year')}-${get('month')}-${get('day')} ${get('hour')}:${get('minute')}`

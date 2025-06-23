@@ -1,37 +1,43 @@
-// generate-sitemap.js
-
 import { readdirSync, writeFileSync, statSync } from 'fs';
 import { join } from 'path';
 
-const docsDir = './docs';
-const baseUrl = 'https://rslog.vercel.app'; // change to your domain
+const baseUrl = 'https://rslog.vercel.app';
 
-function getMarkdownPaths(dir) {
-  const entries = readdirSync(dir, { withFileTypes: true });
-  let paths = [];
-
-  for (const entry of entries) {
-    const fullPath = join(dir, entry.name);
-
-    if (entry.isDirectory()) {
-      if (['.vitepress', 'public'].includes(entry.name)) continue;
-      paths = paths.concat(getMarkdownPaths(fullPath));
-    } else if (entry.isFile() && entry.name.endsWith('.md')) {
-      const relativePath = fullPath.replace(/^\.\/docs/, '').replace(/\.md$/, '');
-      paths.push(`${baseUrl}${relativePath === '/index' ? '' : relativePath}`);
+const walk = (dir) => {
+  let results = [];
+  const list = readdirSync(dir);
+  list.forEach((file) => {
+    const path = join(dir, file);
+    const stat = statSync(path);
+    if (stat && stat.isDirectory()) {
+      results = results.concat(walk(path));
+    } else if (file.endsWith('.md')) {
+      results.push(path);
     }
-  }
+  });
+  return results;
+};
 
-  return paths;
-}
-
-const urls = getMarkdownPaths(docsDir);
+const pages = walk('./docs')
+  .filter((path) => !path.includes('.vitepress') && !path.includes('public'))
+  .map((file) => {
+    const relativePath = file
+      .replace('docs/', '')
+      .replace(/index\.md$/, '')
+      .replace(/\.md$/, '');
+    return `${baseUrl}/${relativePath}`;
+  });
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map(url => `  <url><loc>${url}</loc></url>`).join('\n')}
-</urlset>
-`;
+${pages
+  .map((url) => {
+    return `  <url>
+    <loc>${url}</loc>
+  </url>`;
+  })
+  .join('\n')}
+</urlset>`;
 
 writeFileSync('./docs/public/sitemap.xml', sitemap);
-console.log('✅ sitemap.xml generated with', urls.length, 'entries.');
+console.log('✅ Sitemap generated!');

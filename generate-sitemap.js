@@ -33,5 +33,5 @@ ${urls.map(url => `  <url><loc>${url}</loc></url>`).join('\n')}
 </urlset>
 `;
 
-writeFileSync('./docs/sitemap.xml', sitemap);
+writeFileSync('./docs/public/sitemap.xml', sitemap);
 console.log('✅ sitemap.xml generated with', urls.length, 'entries.');

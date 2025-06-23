@@ -427,7 +427,7 @@ export function useFormatShowDate() {
       const parts = formatter.formatToParts(utcDate)
       const get = (type: string) => parts.find(p => p.type === type)?.value
 
-      return `${get('year')}-${get('month')}-${get('day')} ${get('hour')}:${get('minute')} ${get('dayPeriod')}`
+      return `${get('year')}-${get('month')}-${get('day')} - ${get('hour')}:${get('minute')} ${get('dayPeriod')}`
     }
   })
 }

@@ -417,8 +417,8 @@ export function useFormatShowDate() {
     }
 
     function formatShowDate(date: any) {
-      const source = +new Date(date)
-      const now = +new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Dhaka' }))
+  const source = Date.parse(date) // keeps +06:00 correctly
+  const now = Date.now() + (6 * 60 * 60 * 1000 - new Date().getTimezoneOffset() * 60000) // manual Dhaka offset
       const diff = now - source
       const oneSeconds = 1000
       const oneMinute = oneSeconds * 60

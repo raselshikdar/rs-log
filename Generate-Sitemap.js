@@ -5,7 +5,11 @@ const BASE_URL = 'https://rslog.vercel.app';
 const POSTS_DIR = path.join(__dirname, 'docs/posts');
 const DIST_PATH = path.join(__dirname, 'docs/.vitepress/dist/sitemap.xml');
 
-// Get all .md posts
+if (!fs.existsSync(POSTS_DIR)) {
+  console.error('❌ posts directory not found at:', POSTS_DIR);
+  process.exit(1);
+}
+
 const posts = fs.readdirSync(POSTS_DIR).filter(file => file.endsWith('.md'));
 
 const urls = posts.map(file => {

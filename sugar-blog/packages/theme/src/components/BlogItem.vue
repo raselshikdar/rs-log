@@ -20,7 +20,11 @@ const props = defineProps<{
 const formatShowDate = useFormatShowDate()
 
 const showTime = computed(() => {
-  return formatShowDate.value(props.date)
+  const d = new Date(new Date(props.date).toLocaleString('en-US', { timeZone: 'Asia/Dhaka' }))
+  const yyyy = d.getFullYear()
+  const mm = String(d.getMonth() + 1).padStart(2, '0')
+  const dd = String(d.getDate()).padStart(2, '0')
+  return `${yyyy}-${mm}-${dd}` // Only Date, no time
 })
 const cleanUrls = useCleanUrls()
 const link = computed(() => withBase(wrapperCleanUrls(!!cleanUrls, props.route)))

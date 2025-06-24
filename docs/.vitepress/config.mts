@@ -56,10 +56,6 @@ publicDir: 'docs/public', // ✅ This line ensures sitemap.xml is copied to outp
   ]
 },
 {
-  text: "Interview",
-  link: "/blogs/interview/index"
-},
-{
   text: "Nodes",
   items: [
     { text: "Nestjs", link: "/blogs/node/nest" },

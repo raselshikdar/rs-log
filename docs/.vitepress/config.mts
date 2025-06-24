@@ -49,7 +49,7 @@ publicDir: 'docs/public', // ✅ This line ensures sitemap.xml is copied to outp
       { text: 'Home', link: '/' },
       { text: 'About', link: '/about.html' },
 {
-  text: "My Projects",
+  text: "Projects",
   items: [
     { text: "Open Source Contributions", link: "/products/github" },
     { text: "Work Projects", link: "/products/works" },
@@ -60,7 +60,7 @@ publicDir: 'docs/public', // ✅ This line ensures sitemap.xml is copied to outp
   link: "/blogs/interview/index"
 },
 {
-  text: "Node",
+  text: "Nodes",
   items: [
     { text: "Nestjs", link: "/blogs/node/nest" },
   ]

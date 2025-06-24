@@ -64,6 +64,18 @@ publicDir: 'docs/public', // ✅ This line ensures sitemap.xml is copied to outp
   items: [
     { text: "Nestjs", link: "/blogs/node/nest" },
   ]
+},
+{
+  text: "Docs",
+  items: [
+    { text: "About Us", link: "/docs/about.html" },
+    { text: "Contact Us", link: "/docs/contact.html" },
+    { text: "Privacy Policy", link: "/docs/privacy-policy.html" },
+    { text: "Terms of Use", link: "/docs/terms.html" },
+    { text: "Disclaimer", link: "/docs/disclaimer.html" },
+    { text: "FAQ", link: "/docs/faq.html" },
+    { text: "Advertise", link: "/docs/advertise.html" }
+  ]
 }
     ],
     socialLinks: [

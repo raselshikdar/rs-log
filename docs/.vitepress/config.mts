@@ -47,7 +47,24 @@ publicDir: 'docs/public', // ✅ This line ensures sitemap.xml is copied to outp
     // },
     nav: [
       { text: 'Homepage', link: '/' },
-      { text: 'About me', link: '/about.html' }
+      { text: 'About me', link: '/about.html' },
+{
+  text: "My Projects",
+  items: [
+    { text: "Open Source Contributions", link: "/products/github" },
+    { text: "Work Projects", link: "/products/works" },
+  ]
+},
+{
+  text: "Interview",
+  link: "/blogs/interview/index"
+},
+{
+  text: "Node",
+  items: [
+    { text: "Nestjs", link: "/blogs/node/nest" },
+  ]
+}
     ],
     socialLinks: [
       {

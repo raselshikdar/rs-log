@@ -69,23 +69,28 @@ publicDir: 'docs/public', // ✅ This line ensures sitemap.xml is copied to outp
     socialLinks: [
   {
     icon: 'facebook',
-    link: 'https://facebook.com/raselshiikdar'
+    link: 'https://facebook.com/raselshiikdar',
+    target: '_blank'
   },
   {
     icon: 'x',
-    link: 'https://x.com/raselshikdar_'
+    link: 'https://x.com/raselshikdar_',
+    target: '_blank'
   },
   {
     icon: 'github',
-    link: 'https://github.com/raselshikdar'
+    link: 'https://github.com/raselshikdar',
+    target: '_blank'
   },
   {
     icon: 'telegram',
-    link: 'https://t.me/rasel597'
+    link: 'https://t.me/rasel597',
+    target: '_blank'
   },
   {
-    icon: 'mdi:web',
-    link: 'https://rasel.is-a.dev'
+    icon: 'ri:global-line',
+    link: 'https://rasel.is-a.dev',
+    target: '_blank'
   }
 ],
     comment: {

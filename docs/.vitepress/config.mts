@@ -46,8 +46,8 @@ publicDir: 'docs/public', // ✅ This line ensures sitemap.xml is copied to outp
     //   text: 'Edit this page on GitHub'
     // },
     nav: [
-      { text: 'Homepage', link: '/' },
-      { text: 'About me', link: '/about.html' },
+      { text: 'Home', link: '/' },
+      { text: 'About', link: '/about.html' },
 {
   text: "My Projects",
   items: [

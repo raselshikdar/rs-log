@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useRouter, withBase, useRoute } from 'vitepress'
+import { useRouter, withBase } from 'vitepress'
 import { computed } from 'vue'
 import { wrapperCleanUrls } from '../utils/client'
 import { useCleanUrls, useFormatShowDate, useImageStyle } from '../composables/config/blog'
@@ -64,9 +64,6 @@ const resultCover = computed(() => {
 
   return baseCover
 })
-
-const route = useRoute()
-const isHome = computed(() => route.path === '/')
 </script>
 
 <template>
@@ -97,7 +94,7 @@ const isHome = computed(() => route.path === '/')
         </template>
         <!-- 底部补充描述 -->
         <div class="badge-list pc-visible">
-          <span v-show="author && !isHome" class="split">{{ author }}</span>
+          <span v-show="author" class="split">{{ author }}</span>
           <span class="split">{{ showTime }}</span>
           <span v-if="tag?.length" class="split">{{ tag?.join(' · ') }}</span>
         </div>
@@ -107,7 +104,7 @@ const isHome = computed(() => route.path === '/')
     </div>
     <!-- 底部补充描述 -->
     <div class="badge-list mobile-visible">
-      <span v-show="author && !isHome" class="split">{{ author }}</span>
+      <span v-show="author" class="split">{{ author }}</span>
       <span class="split">{{ showTime }}</span>
       <span v-if="tag?.length" class="split">{{ tag?.join(' · ') }}</span>
     </div>

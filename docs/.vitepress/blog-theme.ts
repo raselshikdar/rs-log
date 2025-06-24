@@ -2,8 +2,9 @@ import { getThemeConfig } from '@sugarat/theme/node'
 
 const blogTheme = getThemeConfig({
   footer: {
-    copyright: 'MIT Licensed | RsLog',
-  },
+  message: '© 2025 <a href="https://rasel.is-a.dev" target="_blank" rel="noopener noreferrer">Rasel Shikdar</a>',
+  copyright: 'MIT Licensed | RsLog',
+},
 
   themeColor: 'el-blue',
 

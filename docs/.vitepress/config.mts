@@ -88,8 +88,8 @@ publicDir: 'docs/public', // ✅ This line ensures sitemap.xml is copied to outp
     target: '_blank'
   },
   {
-    icon: 'mail',
-    link: 'mailto:raselshikdar597@gmail.com',
+    icon: 'rss',
+    link: 'https://rasel.is-a.dev',
     target: '_blank'
   }
 ],

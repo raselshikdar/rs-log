@@ -6,7 +6,7 @@ import { blogTheme } from './blog-theme'
 // If deploying on public platforms like GitHub/Gitee Pages
 // Usually, you need to modify the base path, typically "/repository-name/"
 // If the project name is already set to name.github.io, no changes needed!
-const base = process.env.GITHUB_ACTIONS === 'true'
+const base = process.env.GITHUB_ACTIONS === 'true' && process.env.CUSTOM_DOMAIN !== 'true'
   ? '/rs-log/'
   : '/'
 

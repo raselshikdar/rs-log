@@ -6,16 +6,16 @@ import { blogTheme } from './blog-theme'
 // If deploying on public platforms like GitHub/Gitee Pages
 // Usually, you need to modify the base path, typically "/repository-name/"
 // If the project name is already set to name.github.io, no changes needed!
-// const base = process.env.GITHUB_ACTIONS === 'true'
-//   ? '/vitepress-blog-sugar-template/'
-//   : '/'
+const base = process.env.GITHUB_ACTIONS === 'true'
+  ? '/rs-log/'
+  : '/'
 
 // VitePress default configuration
 // See docs: https://vitepress.dev/reference/site-config
 export default defineConfig({
   // Extend the blog theme (@sugarat/theme)
   extends: blogTheme,
-  // base,
+  base,
   lang: 'en-US',
   title: 'Rasel Shikdar',
   description: 'A journal of ideas, by Rasel Shikdar',

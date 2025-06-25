@@ -1,92 +1,59 @@
 name: Deploy Pages
 
-# Trigger conditions: push to the main branch or pull request to the main branch
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
-
-  # Allow manual trigger on the workflow page
   workflow_dispatch:
 
-# Set timezone
 env:
   TZ: Asia/Dhaka
 
-# Permission settings
 permissions:
-  # Allow read access to repository contents
   contents: read
-  # Allow write access to GitHub Pages
   pages: write
-  # Allow write access to id-token
   id-token: write
 
-# Concurrency control configuration
 concurrency:
   group: pages
   cancel-in-progress: false
 
-# Define execution jobs
 jobs:
-  # Build job
   build:
-
     runs-on: ubuntu-latest
-
-    # Use Node v20
     strategy:
       matrix:
         node-version: [20]
 
     steps:
-      # Checkout code
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          # Keep Git history
           fetch-depth: 0
 
-      # Set Node.js version
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
 
-      # Use the latest PNPM
-      # You can also specify a specific version
       - uses: pnpm/action-setup@v4
         name: Install pnpm
         with:
           version: latest
-          # version: 9
           run_install: false
 
-      # Install dependencies
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
-        # Lock dependency versions
-        # run: pnpm install --frozen-lockfile
 
-      # Build the project
       - name: Build blog project
-        run: |
-          echo ${{ github.workspace }}
-          pnpm build
+        run: pnpm build
 
-      # Resource copy
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: docs/.vitepress/dist
-          destination: ./_site
-
-      # Upload _site resources for deployment
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/.vitepress/dist
 
-  # Deployment job
   deploy:
     environment:
       name: github-pages

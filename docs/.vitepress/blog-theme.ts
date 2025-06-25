@@ -74,8 +74,8 @@ const blogTheme = getThemeConfig({
       },
       {
         type: 'button',
-        content: 'Author Blog',
-        link: '/'
+        content: 'Author Website',
+        link: 'https://rasel.is-a.dev'
       },
       {
         type: 'button',

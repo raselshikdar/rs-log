@@ -46,9 +46,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
-      - name: Set custom domain flag
-        run: echo "CUSTOM_DOMAIN=true" >> $GITHUB_ENV
-
       - name: Build blog project
         run: pnpm build
 

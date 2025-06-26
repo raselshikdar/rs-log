@@ -16,11 +16,11 @@ blog:
 ---
 
 ::: tip
-<p style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-weight: bold;">
+<p style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
   <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Flag_of_Bangladesh.svg" width="20" alt="Bangladesh Flag" />
   🤝
   <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg" width="20" alt="Palestine Flag" />
-  <span>Stand Together for Freedom and Justice</span>
-</p>  
-<em>From Bangladesh to Palestine, we raise our voice against oppression and stand united for dignity, peace, and the right to live free.</em> ✊🕊️
+  <strong>Stand Together for Freedom and Justice</strong> —
+  <em>From Bangladesh to Palestine, we raise our voice against oppression and stand united for dignity, peace, and the right to live free.</em> ✊🕊️
+</p>
 :::

@@ -2,8 +2,8 @@ import { getThemeConfig } from '@sugarat/theme/node'
 
 const blogTheme = getThemeConfig({
   footer: {
-  message: '[About](/about.html) | [Contact](/contact.html) | [Privacy](/privacy.html) | [T&C](/terms.html)',
-  copyright: '2025 [Rasel Shikdar](https://rasel.is-a.dev) | All rights reserved',
+  message: '<a href="/about.html">About</a> | <a href="/contact.html">Contact</a> | <a href="/privacy.html">Privacy</a> | <a href="/terms.html">T&amp;C</a>',
+  copyright: '2025 <a href="https://rasel.is-a.dev" target="_blank" rel="noopener noreferrer">Rasel Shikdar</a> | All rights reserved',
 },
 
   themeColor: 'el-blue',

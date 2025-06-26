@@ -3,7 +3,12 @@ import { getThemeConfig } from '@sugarat/theme/node'
 const blogTheme = getThemeConfig({
   footer: {
   copyright: '2025 Rasel Shikdar | All rights reserved',
-  message: '<a href="/about.html">About</a> • <a href="/contact.html">Contact</a> • <a href="/privacy.html">Privacy</a> • <a href="/terms.html">Terms</a>',
+  message: `
+    <a href="/about.html" title="About Us" aria-label="About Us">About</a> • 
+    <a href="/contact.html" title="Contact Us" aria-label="Contact Us">Contact</a> • 
+    <a href="/privacy.html" title="Privacy Policy" aria-label="Privacy Policy">Privacy</a> • 
+    <a href="/terms.html" title="Terms and Conditions" aria-label="Terms and Conditions">Terms</a>
+  `,
 },
 
   themeColor: 'el-blue',

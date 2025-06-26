@@ -15,13 +15,11 @@ blog:
   pageSize: 20
 ---
 
-::: tip
-<div style="text-align: center; margin-bottom: 0.5em;">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Flag_of_Bangladesh.svg" width="25" alt="Bangladesh Flag" style="vertical-align: middle; margin-right: 6px;" />
+::: tip <p style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-weight: bold;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Flag_of_Bangladesh.svg" width="20" alt="Bangladesh Flag" />
   🤝
-  <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg" width="25" alt="Palestine Flag" style="vertical-align: middle; margin-left: 6px;" />
-</div>
-
-<strong>Stand Together for Freedom and Justice</strong> —  
+  <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg" width="20" alt="Palestine Flag" />
+  <span>Stand Together for Freedom and Justice</span>
+</p>  
 <em>From Bangladesh to Palestine, we raise our voice against oppression and stand united for dignity, peace, and the right to live free.</em> ✊🕊️
 :::

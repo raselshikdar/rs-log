@@ -15,18 +15,18 @@ blog:
   pageSize: 20
 ---
 
-::: danger
+::: tip
 <p style="text-align: center; margin: 0 0 0.3em 0; padding: 0; line-height: 1.5;">
   <strong>
     <span style="display: inline-flex; align-items: center; gap: 4px;">
       <img src="https://flagcdn.com/w20/bd.png" alt="BD" style="height: 1em; vertical-align: middle;"> Bangladesh 
       🤝 
-      <img src="https://flagcdn.com/w20/ps.png" alt="PS" style="height: 1em; vertical-align: middle;"> Palestine
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg" alt="PS" style="height: 1em; vertical-align: middle;"> Palestine
     </span>
   </strong>
 </p>
 <p style="text-align: center; margin: 0; padding: 0; line-height: 1.5;">
   Stand Together for Freedom and Justice —<br>
-  <em>From Bangladesh to Palestine, we raise our voice...</em> ✊🕊️
+  <em>From Bangladesh to Palestine, we raise our voice against oppression and stand united for dignity, peace, and the right to live free.</em> ✊🕊️
 </p>
 :::

@@ -26,7 +26,7 @@ blog:
   </strong>
 </p>
 <p style="text-align: center; margin: 0; padding: 0; line-height: 1.5;">
-  Stand Together for Freedom and Justice —<br>
-  <em>From Bangladesh to Palestine, we raise our voice against oppression and stand united for dignity, peace, and the right to live free.</em> ✊🕊️
+  <strong>Stand Together for Freedom and Justice</strong> —<br>
+  <em>We raise our voice against oppression and stand united for dignity, peace, and the right to live free.</em> ✊🕊️
 </p>
 :::

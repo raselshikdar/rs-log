@@ -26,7 +26,7 @@ blog:
   </strong>
 </p>
 <p style="text-align: center; margin: 0; padding: 0; line-height: 1.5;">
-  <strong>Stand Together for Freedom and Justice</strong> —<br>
+  <strong>Solidarity with Palestine</strong> —<br>
   <em>We raise our voice against oppression and stand united for dignity, peace, and the right to live free.</em> ✊🕊️
 </p>
 :::

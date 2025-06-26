@@ -19,9 +19,9 @@ blog:
 <p style="text-align: center; margin: 0 0 0.3em 0; padding: 0; line-height: 1.5;">
   <strong>
     <span style="display: inline-flex; align-items: center; gap: 4px;">
-      <img src="https://flagcdn.com/w20/bd.png" alt="BD" style="height: 1em; vertical-align: middle;"> Bangladesh 
+      <img src="https://flagcdn.com/w20/bd.png" alt="BD" style="height: 1em; width: 1.5em; object-fit: cover; vertical-align: middle;"> 
       🤝 
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg" alt="PS" style="height: 1em; vertical-align: middle;"> Palestine
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg" alt="PS" style="height: 1em; width: 1.5em; object-fit: cover; vertical-align: middle;">
     </span>
   </strong>
 </p>

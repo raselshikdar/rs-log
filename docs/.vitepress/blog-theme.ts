@@ -63,28 +63,23 @@ const blogTheme = getThemeConfig({
   popover: {
     title: 'Announcement',
     body: [
-      { type: 'text', content: '👇 Official Account 👇---👇 Telegram 👇' },
+      { type: 'text', content: 'Official Account 👇' },
       {
         type: 'image',
         src: 'https://img.cdn.sugarat.top/mdImg/MTYxNTAxODc2NTIxMA==615018765210~fmt.webp'
       },
       {
         type: 'text',
-        content: 'Feel free to join the group & DM for discussions'
-      },
-      {
-        type: 'text',
-        content: 'Group QR codes are shown at the beginning/end of articles',
-        style: 'padding-top:0'
+        content: 'Feel free to text me anytime'
       },
       {
         type: 'button',
-        content: 'Author Website',
+        content: 'Personal Website',
         link: 'https://rasel.is-a.dev'
       },
       {
         type: 'button',
-        content: 'Join group discussion',
+        content: 'Text me on Telegram',
         props: {
           type: 'success'
         },

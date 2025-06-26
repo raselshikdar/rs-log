@@ -56,7 +56,7 @@ const blogTheme = getThemeConfig({
   buttonAfterArticle: {
     openTitle: 'Support with a "Tip"',
     closeTitle: 'Maybe next time',
-    content: '<img src="https://img.cdn.sugarat.top/mdImg/MTY0Nzc1NTYyOTE5Mw==647755629193">',
+    content: '<img src="https://raw.githubusercontent.com/raselshikdar/rs-log/refs/heads/main/docs/public/btc-wallet.png">',
     icon: 'wechatPay',
   },
 
@@ -66,7 +66,7 @@ const blogTheme = getThemeConfig({
       { type: 'text', content: 'Official Account 👇' },
       {
         type: 'image',
-        src: 'https://img.cdn.sugarat.top/mdImg/MTYxNTAxODc2NTIxMA==615018765210~fmt.webp'
+        src: 'https://raw.githubusercontent.com/raselshikdar/rs-log/refs/heads/main/docs/public/qr-code.png'
       },
       {
         type: 'text',

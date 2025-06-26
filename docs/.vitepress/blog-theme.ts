@@ -70,16 +70,21 @@ const blogTheme = getThemeConfig({
       },
       {
         type: 'text',
-        content: 'Feel free to text me anytime'
+        content: 'Visit my personal website'
+      },
+      {
+        type: 'text',
+        content: 'Feel free to text me',
+        style: 'padding-top:0'
       },
       {
         type: 'button',
-        content: 'Personal Website',
+        content: 'Website',
         link: 'https://rasel.is-a.dev'
       },
       {
         type: 'button',
-        content: 'Text me on Telegram',
+        content: 'Telegram',
         props: {
           type: 'success'
         },

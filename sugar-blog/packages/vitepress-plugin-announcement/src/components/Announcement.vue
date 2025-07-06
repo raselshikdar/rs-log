@@ -2,7 +2,6 @@
 import { computed, h, ref, watch } from 'vue'
 import { useData, useRoute, useRouter } from 'vitepress'
 import type { Announcement, AnnouncementOptions } from 'vitepress-plugin-announcement'
-
 // @ts-expect-error
 import announcementOptions from 'virtual:announcement-options'
 import AnnouncementButton from './AnnouncementButton.vue'
@@ -10,57 +9,63 @@ import AnnouncementIcon from './AnnouncementIcon.vue'
 import { inBrowser, parseStringStyle, useDebounceFn, useWindowSize } from './util'
 
 const { localeIndex } = useData()
-
 const popoverProps = computed<AnnouncementOptions>(() => ({ ...announcementOptions, ...announcementOptions?.locales?.[localeIndex.value] }))
 
-const show = ref(false)
+const storageKey = computed(() => `vitepress-plugin-announcement-${localeIndex.value}`)
+const closeFlag = computed(() => `${storageKey.value}-close`)
+const shownKey = computed(() => `${storageKey.value}-shown`)  // Track if shown once
+
+const show = ref(false)  // Start hidden by default
 
 const bodyContent = computed(() => {
   return popoverProps.value?.body || []
 })
-
 const footerContent = computed(() => {
   return popoverProps.value?.footer || []
 })
-const storageKey = computed(() => `vitepress-plugin-announcement-${localeIndex.value}`)
-const closeFlag = computed(() => `${storageKey.value}-close`)
 
-// 移动端最小化
 const { width } = useWindowSize()
 const router = useRouter()
 const route = useRoute()
+
 watch(popoverProps, () => {
-  if (!popoverProps.value?.title || !inBrowser) return
+  if (!popoverProps.value?.title) {
+    return
+  }
+  if (!inBrowser) {
+    return
+  }
+
+  // Show only once on first visit
+  if (!localStorage.getItem(shownKey.value)) {
+    show.value = (popoverProps.value?.duration ?? 0) >= 0
+    localStorage.setItem(shownKey.value, 'true')
+  }
 
   const oldValue = localStorage.getItem(storageKey.value)
   const newValue = JSON.stringify(popoverProps.value)
   localStorage.setItem(storageKey.value, newValue)
 
-  const alreadyViewed = localStorage.getItem(`announcement-viewed-${localeIndex.value}`)
-
-  // ✅ Show only on first visit
-  if (!alreadyViewed) {
-    localStorage.setItem(`announcement-viewed-${localeIndex.value}`, 'true')
-
-    // 移动端最小化
-    if (width.value < 768 && popoverProps.value?.mobileMinify) {
-      show.value = false
-      return
-    }
-
-    show.value = true
-    if (Number(popoverProps.value?.duration ?? '') >= 0) {
-      if (popoverProps.value?.duration) {
-        setTimeout(() => {
-          show.value = false
-        }, popoverProps.value?.duration)
-      }
-    }
+  if (width.value < 768 && popoverProps.value?.mobileMinify) {
+    show.value = false
     return
   }
 
-  // 🛑 Skip showing if already viewed
-  show.value = false
+  // Your original auto-show and duration logic, but prevent auto-show on subsequent visits
+  if (localStorage.getItem(shownKey.value)) {
+    if (Number(popoverProps.value?.duration ?? '') >= 0) {
+      // Do NOT auto-show on subsequent visits
+      return
+    }
+    if (oldValue !== newValue && popoverProps.value?.duration === -1) {
+      show.value = true
+      localStorage.removeItem(closeFlag.value)
+      return
+    }
+    if (oldValue === newValue && popoverProps.value?.duration === -1 && !localStorage.getItem(closeFlag.value)) {
+      show.value = true
+    }
+  }
 }, { immediate: true })
 
 const onAfterRouteChanged = useDebounceFn(() => {
@@ -89,7 +94,6 @@ function parseMarkdownToHtml(markdown: string): string {
     { regex: /\[(.*?)\]\((.*?)\)/gim, replacement: '<a href="$2">$1</a>' },
     { regex: /\n$/gim, replacement: '<br />' },
   ]
-
   return rules.reduce((acc, rule) => acc.replace(rule.regex, rule.replacement), markdown)
 }
 

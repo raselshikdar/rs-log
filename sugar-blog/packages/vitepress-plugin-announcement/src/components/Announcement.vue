@@ -13,7 +13,7 @@ const { localeIndex } = useData()
 
 const popoverProps = computed<AnnouncementOptions>(() => ({ ...announcementOptions, ...announcementOptions?.locales?.[localeIndex.value] }))
 
-const show = ref(false)  // Initially hidden
+const show = ref(false)
 
 const bodyContent = computed(() => {
   return popoverProps.value?.body || []
@@ -24,64 +24,43 @@ const footerContent = computed(() => {
 })
 const storageKey = computed(() => `vitepress-plugin-announcement-${localeIndex.value}`)
 const closeFlag = computed(() => `${storageKey.value}-close`)
-const viewedFlag = computed(() => `${storageKey.value}-viewed`)  // New flag to track first visit
 
 // 移动端最小化
 const { width } = useWindowSize()
 const router = useRouter()
 const route = useRoute()
-
-// 📝 Show only on first visit
 watch(popoverProps, () => {
-  if (!popoverProps.value?.title) {
-    return
-  }
+  if (!popoverProps.value?.title || !inBrowser) return
 
-  if (!inBrowser) {
-    return
-  }
-
-  // 取旧值
   const oldValue = localStorage.getItem(storageKey.value)
   const newValue = JSON.stringify(popoverProps.value)
   localStorage.setItem(storageKey.value, newValue)
 
-  // Check if it's the first visit
-  if (!localStorage.getItem(viewedFlag.value)) {
-    // Only first time
-    localStorage.setItem(viewedFlag.value, 'true')  // Mark as viewed
+  const alreadyViewed = localStorage.getItem(`announcement-viewed-${localeIndex.value}`)
+
+  // ✅ Show only on first visit
+  if (!alreadyViewed) {
+    localStorage.setItem(`announcement-viewed-${localeIndex.value}`, 'true')
+
+    // 移动端最小化
+    if (width.value < 768 && popoverProps.value?.mobileMinify) {
+      show.value = false
+      return
+    }
+
     show.value = true
-  } else {
-    show.value = false  // Don't show again
-  }
-
-  // 移动端最小化
-  if (width.value < 768 && popoverProps.value?.mobileMinify) {
-    show.value = false
-    return
-  }
-
-  // >= 0 每次都展示，区别是否自动消失
-  if (Number(popoverProps.value?.duration ?? '') >= 0) {
-    if (show.value) {
-      setTimeout(() => {
-        show.value = false
-      }, popoverProps.value?.duration)
+    if (Number(popoverProps.value?.duration ?? '') >= 0) {
+      if (popoverProps.value?.duration) {
+        setTimeout(() => {
+          show.value = false
+        }, popoverProps.value?.duration)
+      }
     }
     return
   }
 
-  if (oldValue !== newValue && popoverProps.value?.duration === -1) {
-    // 当做新值处理
-    show.value = true
-    localStorage.removeItem(closeFlag.value)
-    return
-  }
-
-  // 新旧相等，判断是否点击过close，没点击关闭依然展示
-  if (oldValue === newValue && popoverProps.value?.duration === -1 && !localStorage.getItem(closeFlag.value)) {
-    show.value = true
-  }
+  // 🛑 Skip showing if already viewed
+  show.value = false
 }, { immediate: true })
 
 const onAfterRouteChanged = useDebounceFn(() => {

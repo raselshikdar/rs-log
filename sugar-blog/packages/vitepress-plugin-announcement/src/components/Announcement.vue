@@ -13,7 +13,7 @@ const { localeIndex } = useData()
 
 const popoverProps = computed<AnnouncementOptions>(() => ({ ...announcementOptions, ...announcementOptions?.locales?.[localeIndex.value] }))
 
-const show = ref((popoverProps.value?.duration ?? 0) >= 0)
+const show = ref(false)  // Initially hidden
 
 const bodyContent = computed(() => {
   return popoverProps.value?.body || []
@@ -24,11 +24,14 @@ const footerContent = computed(() => {
 })
 const storageKey = computed(() => `vitepress-plugin-announcement-${localeIndex.value}`)
 const closeFlag = computed(() => `${storageKey.value}-close`)
+const viewedFlag = computed(() => `${storageKey.value}-viewed`)  // New flag to track first visit
 
 // 移动端最小化
 const { width } = useWindowSize()
 const router = useRouter()
 const route = useRoute()
+
+// 📝 Show only on first visit
 watch(popoverProps, () => {
   if (!popoverProps.value?.title) {
     return
@@ -43,6 +46,15 @@ watch(popoverProps, () => {
   const newValue = JSON.stringify(popoverProps.value)
   localStorage.setItem(storageKey.value, newValue)
 
+  // Check if it's the first visit
+  if (!localStorage.getItem(viewedFlag.value)) {
+    // Only first time
+    localStorage.setItem(viewedFlag.value, 'true')  // Mark as viewed
+    show.value = true
+  } else {
+    show.value = false  // Don't show again
+  }
+
   // 移动端最小化
   if (width.value < 768 && popoverProps.value?.mobileMinify) {
     show.value = false
@@ -51,8 +63,7 @@ watch(popoverProps, () => {
 
   // >= 0 每次都展示，区别是否自动消失
   if (Number(popoverProps.value?.duration ?? '') >= 0) {
-    show.value = true
-    if (popoverProps.value?.duration) {
+    if (show.value) {
       setTimeout(() => {
         show.value = false
       }, popoverProps.value?.duration)

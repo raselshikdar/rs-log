@@ -1,7 +1,7 @@
 import { readdirSync, writeFileSync, statSync } from 'fs'
 import { join } from 'path'
 
-const baseUrl = 'https://rasel.jsx.pm'
+const baseUrl = 'https://raselsh.site'
 
 const walk = (dir) => {
   let results = []

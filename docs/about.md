@@ -1,72 +1,61 @@
 ---
-sticky: 1
+title: About Us
+date: 2025-07-13
+comment: false
 ---
 
-# About the Theme
+# 👋 Welcome to My Blog
 
-A minimalist VitePress blog theme, implemented as a custom theme based on [vitepress](https://vitepress.dev/)
+This is the personal blog of **Rasel Shikdar**, a passionate Full-Stack Developer, blogger, and self-taught learner from Bangladesh. This space is dedicated to sharing insights, tutorials, projects, and experiences from my journey as a developer and web enthusiast.
 
-![Image](https://img.cdn.sugarat.top/mdImg/MTY3MzE3MDUxOTMwMw==673170519303)
+---
 
-For more details, visit: https://theme.sugarat.top
+## 👨‍💻 About Me
 
-## Supported Features
+Hi! I’m **Rasel Shikdar**, a Full-Stack Web Developer with a focus on the **MERN stack** (MongoDB, Express, React, Node.js). I love building apps, writing clean code, and sharing what I learn along the way.
 
-Main features (not all):
+I actively contribute to open-source ideas, clone full-stack projects for practice, and enjoy solving real-world problems using modern web technologies. I also manage [my personal portfolio site](https://raselsh.site), where you can explore all of my work in one place.
 
-- Blog homepage  
-- Article list  
-- Featured articles  
-- Friend links  
-- Tag classification  
-- Image preview  
-- Search (offline full-text search powered by [pagefind](https://github.com/cloudcannon/pagefind))  
-- Comment system powered by [giscus](https://giscus.app/zh-CN)  
-- Recommended articles (related content)  
-- Reading time estimation  
-- Global alert pop-ups (powered by `el-alert`)  
-- Global announcement pop-ups (supports image, text, button)  
-- Project showcase page (display your personal projects)  
-- Tabs (via [vitepress-plugin-tabs](https://vitepress-plugins.sapphi.red/tabs/))  
-- Flowcharts (via [vitepress-plugin-mermaid](https://github.com/emersonbottero/vitepress-plugin-mermaid#readme))  
-- RSS  
-- Unified theme colors  
-- More customizable styles  
+---
 
-## Planned Features
+## ✍️ Why I Started This Blog
 
-- Valine comment system  
-- Article collections (grouped topics)  
-- Article timeline page  
-- Automatic background switching  
-- Fullscreen slogan on first screen (inspired by Reco)
+I created **My Blog** to:
 
-## Referenced Projects
+- Document my **development journey**
+- Share **step-by-step tutorials** and **code breakdowns**
+- Provide insights on **real-life coding challenges**
+- Inspire other self-learners and junior devs in the community
+- Keep a personal record of what I’ve built, learned, and overcome
 
-The theme draws inspiration and UI/UX elements from the following:
+Whether you're here to follow a tutorial or just exploring, I hope you find something useful and inspiring.
 
-- [reco](https://vuepress-theme-reco.recoluan.com/)  
-- [Juejin](https://juejin.cn/)  
-- [surmon](https://surmon.me/)  
-- [@vue/theme](https://github.com/vuejs/theme)  
-- [vitest](https://vitest.dev/)  
-- [element-plus](https://element-plus.gitee.io/zh-CN/)  
-- [charles7c.github.io](https://github.com/Charles7c/charles7c.github.io)  
-- [vitepress-blog-zaun](https://github.com/clark-cui/vitepress-blog-zaun)  
-- [vuejs/blog](https://github.com/vuejs/blog/tree/main)  
-- [Infinite scroll carousel](https://code.juejin.cn/pen/7145007064350195748)
+---
 
-## Theme Resources
+## 🛠️ What You'll Find Here
 
-- Theme site: https://theme.sugarat.top/  
-- NPM package: [@sugarat/theme](https://www.npmjs.com/package/@sugarat/theme)  
-- GitHub repo: https://github.com/ATQQ/sugar-blog/tree/master/packages/theme  
-- Author's blog: https://sugarat.top
+- **Web Development Tutorials** – especially MERN stack, frontend tricks, and backend logic
+- **Tech Insights** – best practices, tools, and trends from a developer’s perspective
+- **Project Walkthroughs** – deep dives into apps I’ve built or cloned
+- **Code Snippets & Tips** – practical and reusable solutions for everyday development
 
-## Final Words
+---
 
-If you have feature suggestions or ideas, feel free to message or comment.
+## 🌐 More About Me
 
-If you like the theme, you're welcome to share and use it. You can leave your site link in the comments.
+- 💼 **Portfolio**: [raselsh.site](https://raselsh.site)  
+- 💻 **GitHub**: [github.com/raselshikdar](https://github.com/raselshikdar)  
+- ✉️ **Email**: [info@raselsh.site](mailto:info@raselsh.site)  
+- 🧠 **Interests**: Full-stack development, blogging, tech trends, UI/UX, problem-solving
 
-The author plans to feature excellent blogs from users in a separate section. Thanks for your support!
+---
+
+## 🤝 Let's Collaborate
+
+I’m always open to interesting projects, collaborations, or just good conversations around development. Feel free to reach out or connect via GitHub or my portfolio site.
+
+> Thanks for reading. Stay curious, keep coding!
+
+---
+
+*Made with 💻 + ☕ by Rasel Shikdar*

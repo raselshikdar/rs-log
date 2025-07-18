@@ -8,35 +8,36 @@ const alertProps = useAlertConfig()
 const show = ref(false)
 const storageKey = 'theme-blog-alert'
 const closeFlag = `${storageKey}-close`
-onMounted(() => {
-  // 取旧值
-  const oldValue = localStorage.getItem(storageKey)
-  const newValue = JSON.stringify(alertProps.value)
-  localStorage.setItem(storageKey, newValue)
 
-  // >= 0 每次都展示，区别是否自动消失
-  if (Number(alertProps?.value?.duration) >= 0) {
-    show.value = true
-    if (alertProps?.value?.duration) {
-      setTimeout(() => {
-        show.value = false
-      }, alertProps?.value?.duration)
-    }
-    return
-  }
+// onMounted(() => {
+//   // 取旧值
+//   const oldValue = localStorage.getItem(storageKey)
+//   const newValue = JSON.stringify(alertProps.value)
+//   localStorage.setItem(storageKey, newValue)
 
-  if (oldValue !== newValue && alertProps?.value?.duration === -1) {
-    // 当做新值处理
-    show.value = true
-    localStorage.removeItem(closeFlag)
-    return
-  }
+//   // >= 0 每次都展示，区别是否自动消失
+//   if (Number(alertProps?.value?.duration) >= 0) {
+//     show.value = true
+//     if (alertProps?.value?.duration) {
+//       setTimeout(() => {
+//         show.value = false
+//       }, alertProps?.value?.duration)
+//     }
+//     return
+//   }
 
-  // 新旧相等，判断是否点击过close，没点击关闭依然展示
-  if (oldValue === newValue && alertProps?.value?.duration === -1 && !localStorage.getItem(closeFlag)) {
-    show.value = true
-  }
-})
+//   if (oldValue !== newValue && alertProps?.value?.duration === -1) {
+//     // 当做新值处理
+//     show.value = true
+//     localStorage.removeItem(closeFlag)
+//     return
+//   }
+
+//   // 新旧相等，判断是否点击过close，没点击关闭依然展示
+//   if (oldValue === newValue && alertProps?.value?.duration === -1 && !localStorage.getItem(closeFlag)) {
+//     show.value = true
+//   }
+// })
 
 function handleClose() {
   show.value = false
@@ -47,6 +48,9 @@ function handleClose() {
 </script>
 
 <template>
+  <!-- Manual trigger button added -->
+  <button @click="show = true">Show Alert</button>
+
   <div v-if="show" class="global-alert" data-pagefind-ignore="all">
     <ElAlert
       :title="alertProps?.title"

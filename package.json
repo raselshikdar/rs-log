@@ -16,7 +16,7 @@
     "@mdit-vue/shared": "^2.1.4",
     "@sugarat/theme": "^0.5.4",
     "@vueuse/core": "^13.4.0",
-    "@waline/client": "^3.5.7",
+    "@waline/client": "^3.8.0",
     "dayjs": "^1.11.13",
     "element-plus": "^2.7.2",
     "nprogress": "^0.2.0",

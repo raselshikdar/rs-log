@@ -11,7 +11,7 @@ let walineInstance = null
 onMounted(() => {
   walineInstance = init({
     el: '#waline',
-    serverURL: 'https://raselverse-waline.vercel.app',
+    serverURL: 'https://waline-neon.vercel.app/',
     lang: 'en',
     reaction: true,
     emoji: [

@@ -20,7 +20,7 @@ const initWaline = () => {
 
   walineInstance = init({
     el: '#waline-comment',
-    serverURL: 'https://raselverse-waline.vercel.app',
+    serverURL: 'https://waline-neon.vercel.app/',
     emoji: [
       'https://unpkg.com/@waline/emojis@1.1.0/tieba',
       'https://unpkg.com/@waline/emojis@1.1.0/weibo',

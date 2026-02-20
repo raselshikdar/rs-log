@@ -1,16 +1,15 @@
 ---
 layout: home
-# Customize elements on the homepage
+
 blog:
   name: 'Rasel Shikdar'
-  motto: A journal of ideas, by Rasel Shikdar
+  motto: 'A journal of ideas'
   inspiring:
     - Crafting ideas into digital reality.
-- Simple thoughts. Meaningful impact.
-- Write. Build. Evolve.
-- Small steps. Big vision.
-- Keep shipping.
-  # Set inspiringTimeout to enable automatic switching
+    - Simple thoughts. Meaningful impact.
+    - Write. Build. Evolve.
+    - Small steps. Big vision.
+    - Keep shipping.
   inspiringTimeout: 3000
   pageSize: 20
 ---

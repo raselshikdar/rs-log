@@ -188,23 +188,31 @@ export function useBlogThemeMode() {
 
 export function useArticles() {
   const blogConfig = useConfig()
-  const { localeIndex } = useData()
+  const { localeIndex, site } = useData()
 
   const articles = computed(() => {
     const allData = blogConfig?.value?.blog?.pagesData || []
 
-    // root locale (usually Chinese or default language)
-    if (localeIndex.value === 'root') {
-      return allData.filter(item => {
-        // Exclude prefixed locales like /en/ or /bn/
-        return !/^\/(en|bn)\//.test(item.route)
-      })
-    }
+    // Get current locale base path
+    const localeBase =
+      site.value.locales?.[localeIndex.value]?.base || '/'
 
-    // For other locales like en, bn etc
-    return allData.filter(item =>
-      item.route.startsWith(`/${localeIndex.value}/`)
-    )
+    return allData.filter((item) => {
+      // Normalize route
+      const route = item.route.endsWith('/')
+        ? item.route
+        : item.route + '/'
+
+      // If root locale (base '/')
+      if (localeBase === '/') {
+        return !Object.values(site.value.locales).some(
+          (loc: any) =>
+            loc.base !== '/' && route.startsWith(loc.base)
+        )
+      }
+
+      return route.startsWith(localeBase)
+    })
   })
 
   return articles

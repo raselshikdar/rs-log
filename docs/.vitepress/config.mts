@@ -77,7 +77,7 @@ publicDir: 'docs/public', // ✅ This line ensures sitemap.xml is copied to outp
     socialLinks: [
   {
     icon: 'facebook',
-    link: 'https://facebook.com/raselshiikdar',
+    link: 'https://facebook.com/raselverse',
     target: '_blank'
   },
   {
@@ -97,7 +97,7 @@ publicDir: 'docs/public', // ✅ This line ensures sitemap.xml is copied to outp
   },
   {
     icon: 'rss',
-    link: 'https://rasel.is-a.dev',
+    link: 'https://raselsh.pro.bd',
     target: '_blank'
   }
 ],

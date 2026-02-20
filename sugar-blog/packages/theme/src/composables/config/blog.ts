@@ -190,31 +190,14 @@ export function useArticles() {
   const blogConfig = useConfig()
   const { localeIndex, site } = useData()
 
+  const localeKeys = computed(() => Object.keys(site.value.locales))
+
   const articles = computed(() => {
-    const allData = blogConfig?.value?.blog?.pagesData || []
-
-    // Get current locale base path
-    const localeBase =
-      site.value.locales?.[localeIndex.value]?.base || '/'
-
-    return allData.filter((item) => {
-      // Normalize route
-      const route = item.route.endsWith('/')
-        ? item.route
-        : item.route + '/'
-
-      // If root locale (base '/')
-      if (localeBase === '/') {
-        return !Object.values(site.value.locales).some(
-          (loc: any) =>
-            loc.base !== '/' && route.startsWith(loc.base)
-        )
-      }
-
-      return route.startsWith(localeBase)
-    })
+    if (localeKeys.value.length === 0) {
+      return (blogConfig?.value?.blog?.pagesData || [])
+    }
+    return blogConfig?.value?.blog?.locales?.[localeIndex.value]?.pagesData || []
   })
-
   return articles
 }
 

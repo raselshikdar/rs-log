@@ -188,16 +188,25 @@ export function useBlogThemeMode() {
 
 export function useArticles() {
   const blogConfig = useConfig()
-  const { localeIndex, site } = useData()
-
-  const localeKeys = computed(() => Object.keys(site.value.locales))
+  const { localeIndex } = useData()
 
   const articles = computed(() => {
-    if (localeKeys.value.length === 0) {
-      return (blogConfig?.value?.blog?.pagesData || [])
-    }
-    return blogConfig?.value?.blog?.locales?.[localeIndex.value]?.pagesData || []
+    const localeData = blogConfig?.value?.blog?.locales?.[localeIndex.value]?.pagesData
+    const rootData = blogConfig?.value?.blog?.pagesData || []
+
+    // If locale pagesData exists and has content → use it
+    // Otherwise fallback to root pagesData
+    const finalData = localeData?.length ? localeData : rootData
+
+    // Remove duplicates by route (important fix)
+    const uniqueMap = new Map()
+    finalData.forEach((item) => {
+      uniqueMap.set(item.route, item)
+    })
+
+    return Array.from(uniqueMap.values())
   })
+
   return articles
 }
 

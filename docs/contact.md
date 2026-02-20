@@ -17,9 +17,9 @@ If you have a project idea, collaboration proposal, technical discussion, or sim
 
 For professional inquiries:
 
-**[raselshikdar597@gmail.com](mailto:raselshikdar597@gmail.com)**  
+**[Send an Email](mailto:blog@rasel.iam.bd)**  
 
-> I typically respond within 24–48 hours.
+> Typical response time: 24–48 hours.
 
 ---
 
@@ -28,21 +28,21 @@ For professional inquiries:
 I am open to working on:
 
 - Full-stack web applications  
-- Modern UI/UX implementations  
+- Modern UI/UX development  
 - Performance optimization  
 - Technical writing & documentation  
 - Open-source collaboration  
 
-If you have a clear idea or project scope, please include details in your message.
+If you have a clear idea or project scope, please include relevant details in your message.
 
 ---
 
 ## 🌐 Connect With Me
 
-- **GitHub:** [github.com/raselshikdar](https://github.com/raselshikdar)
-- **Facebook:** [facebook.com/raselverse](https://facebook.com/raselverse)
-- **X (Twitter):** [x.com/raselshikdar_](https://x.com/raselshikdar_)
-- **Telegram:** [t.me/rasel597](https://t.me/rasel597)
+- [GitHub](https://github.com/raselshikdar)
+- [Facebook](https://facebook.com/raselverse)
+- [X (Twitter)](https://x.com/raselshikdar_)
+- [Telegram](https://t.me/rasel597)
 
 ---
 

@@ -191,20 +191,20 @@ export function useArticles() {
   const { localeIndex } = useData()
 
   const articles = computed(() => {
-    const localeData = blogConfig?.value?.blog?.locales?.[localeIndex.value]?.pagesData
-    const rootData = blogConfig?.value?.blog?.pagesData || []
+    const allData = blogConfig?.value?.blog?.pagesData || []
 
-    // If locale pagesData exists and has content → use it
-    // Otherwise fallback to root pagesData
-    const finalData = localeData?.length ? localeData : rootData
+    // root locale (usually Chinese or default language)
+    if (localeIndex.value === 'root') {
+      return allData.filter(item => {
+        // Exclude prefixed locales like /en/ or /bn/
+        return !/^\/(en|bn)\//.test(item.route)
+      })
+    }
 
-    // Remove duplicates by route (important fix)
-    const uniqueMap = new Map()
-    finalData.forEach((item) => {
-      uniqueMap.set(item.route, item)
-    })
-
-    return Array.from(uniqueMap.values())
+    // For other locales like en, bn etc
+    return allData.filter(item =>
+      item.route.startsWith(`/${localeIndex.value}/`)
+    )
   })
 
   return articles

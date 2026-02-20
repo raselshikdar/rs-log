@@ -118,15 +118,7 @@ publicDir: 'docs/public', // ✅ This line ensures sitemap.xml is copied to outp
 
     // 👇 ADDED blog config with formatShowDate
     blog: {
-  announcement: {
-    duration: -1,
-    reopen: true,
-    onRouteChanged: (_, show) => {
-      show.value = false
-    }
-  },
-
-  formatShowDate: (date: string) => {
+      formatShowDate: (date: string) => {
         const source = +new Date(new Date(date).toLocaleString('en-US', { timeZone: 'Asia/Dhaka' }))
         const now = +new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Dhaka' }))
         const diff = now - source

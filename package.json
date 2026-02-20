@@ -14,7 +14,7 @@
     "@element-plus/icons-vue": "^2.3.1",
     "@giscus/vue": "^3.1.1",
     "@mdit-vue/shared": "^2.1.4",
-    "@sugarat/theme": "^0.5.4",
+    "@sugarat/theme": "file:./sugar-blog/packages/theme",
     "@vueuse/core": "^13.4.0",
     "@waline/client": "^3.8.0",
     "dayjs": "^1.11.13",

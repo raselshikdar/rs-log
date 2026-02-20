@@ -13,7 +13,7 @@ const { localeIndex } = useData()
 
 const popoverProps = computed<AnnouncementOptions>(() => ({ ...announcementOptions, ...announcementOptions?.locales?.[localeIndex.value] }))
 
-const show = ref((popoverProps.value?.duration ?? 0) >= 0)
+const show = ref(false)
 
 const bodyContent = computed(() => {
   return popoverProps.value?.body || []
